@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Penilaian MTQ Nasional 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sistem Penilaian MTQ XII Kabupaten Seram Bagian Timur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -17,9 +17,6 @@
             --text-dark: #2c3e2d;
             --text-muted: #6b7c6b;
             --border: #c8d6c9;
-            --error: #c0392b;
-            --success: #27ae60;
-            --warning: #f39c12;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,50 +28,15 @@
             line-height: 1.6;
         }
 
-        .arabic { font-family: 'Amiri', serif; }
-
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
             padding: 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
-            animation: slide 20s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header p { opacity: 0.9; position: relative; z-index: 1; }
-
-        .header .icon-pattern {
-            position: absolute;
-            font-size: 8rem;
-            opacity: 0.05;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 0.9rem; }
 
         .nav-container {
             background: var(--bg-white);
@@ -110,20 +72,19 @@
 
         .nav-tab:hover { background: var(--bg-light); color: var(--primary); }
         .nav-tab.active { background: var(--primary); color: white; }
-        .nav-tab i { font-size: 0.9rem; }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .card {
             background: var(--bg-white);
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             border: 1px solid var(--border);
         }
 
@@ -134,26 +95,28 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid var(--bg-light);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
         .card-subtitle {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-top: 0.25rem;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
@@ -166,17 +129,16 @@
             font-weight: 500;
             margin-bottom: 0.5rem;
             color: var(--text-dark);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .form-group input,
         .form-group select {
-            padding: 0.75rem 1rem;
+            padding: 0.6rem 0.8rem;
             border: 2px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s;
+            font-size: 0.9rem;
             background: var(--bg-light);
         }
 
@@ -185,12 +147,11 @@
             outline: none;
             border-color: var(--primary-light);
             background: white;
-            box-shadow: 0 0 0 3px rgba(46, 139, 71, 0.1);
         }
 
         .table-container {
             overflow-x: auto;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             border-radius: 12px;
             border: 1px solid var(--border);
         }
@@ -198,7 +159,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         thead {
@@ -206,36 +167,22 @@
             color: white;
         }
 
-        th {
-            padding: 1rem;
+        th, td {
+            padding: 0.75rem;
             text-align: left;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        td {
-            padding: 0.75rem 1rem;
             border-bottom: 1px solid var(--border);
         }
 
-        tbody tr:hover { background: var(--bg-light); }
-        tbody tr:last-child td { border-bottom: none; }
-
         .input-cell {
-            width: 80px;
-            padding: 0.5rem;
+            width: 70px;
+            padding: 0.4rem;
             border: 2px solid var(--border);
             border-radius: 6px;
             text-align: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             color: var(--primary);
-        }
-
-        .input-cell:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: #fffef5;
+            font-size: 0.85rem;
         }
 
         .result-cell {
@@ -249,21 +196,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
-            min-width: 80px;
+            font-size: 1rem;
+            background: var(--primary);
+            color: white;
         }
 
-        .score-excellent { background: #d4edda; color: #155724; }
-        .score-good { background: #fff3cd; color: #856404; }
-        .score-fair { background: #f8d7da; color: #721c24; }
-
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             cursor: pointer;
@@ -271,7 +215,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .btn-primary {
@@ -279,26 +223,10 @@
             color: white;
         }
 
-        .btn-primary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 95, 42, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: #2c3e2d;
-        }
-
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
         }
 
         .btn-group {
@@ -308,223 +236,130 @@
             flex-wrap: wrap;
         }
 
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .summary-card {
-            background: linear-gradient(135deg, #f8faf5, #e8f5e9);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 2px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .summary-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--secondary);
-        }
-
-        .summary-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .summary-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1rem;
-        }
-
-        .summary-score {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .summary-details {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
-
         .rekap-section {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 16px;
-            margin-top: 2rem;
-        }
-
-        .rekap-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            margin-top: 1.5rem;
         }
 
         .rekap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
         }
 
         .rekap-item {
             background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
             padding: 1rem;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .rekap-label {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            margin-bottom: 0.25rem;
-        }
-
-        .rekap-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+        .rekap-label { font-size: 0.8rem; opacity: 0.9; margin-bottom: 0.25rem; }
+        .rekap-value { font-size: 1.3rem; font-weight: 700; }
 
         .formula-box {
             background: #f0f7f1;
             border-left: 4px solid var(--secondary);
-            padding: 1rem 1.5rem;
+            padding: 0.75rem 1rem;
             margin: 1rem 0;
             border-radius: 0 8px 8px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: var(--text-dark);
+            font-family: monospace;
+            font-size: 0.85rem;
         }
 
         .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.4s ease; }
+        .section.active { display: block; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        h4 {
+            margin: 1.5rem 0 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
-            .header h1 { font-size: 1.5rem; }
-            .container { padding: 1rem; }
-            .card { padding: 1.25rem; }
+            .header h1 { font-size: 1.3rem; }
+            .container { padding: 0.5rem; }
+            .card { padding: 1rem; }
             .form-grid { grid-template-columns: 1fr; }
             th, td { padding: 0.5rem; font-size: 0.8rem; }
-            .input-cell { width: 60px; padding: 0.4rem; }
+            .input-cell { width: 50px; padding: 0.3rem; }
+            .nav-tab { padding: 0.6rem 0.8rem; font-size: 0.75rem; }
         }
-
-        @media print {
-            .nav-container, .btn-group { display: none; }
-            .section { display: block !important; }
-            .card { break-inside: avoid; }
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            display: none;
-            align-items: center;
-            gap: 0.75rem;
-            z-index: 1000;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .toast.show { display: flex; }
     </style>
 <base target="_blank">
 </head>
 <body>
     <header class="header">
-        <i class="fas fa-mosque icon-pattern"></i>
-        <h1>Sistem Penilaian MTQ Nasional 2025</h1>
-        <p>Lembaga Pengembangan Tilawatil Qur'an (LPTQ) Nasional</p>
+        <h1>Sistem Penilaian MTQ XII Kabupaten Seram Bagian Timur</h1>
+        <p>Lembaga Pengembangan Tilawatil Qur'an (LPTQ) Kabupaten Seram Bagian Timur</p>
+        <p>Created by Moh Munirul Mukmin</p>
     </header>
 
     <nav class="nav-container">
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('dashboard')">
+            <button class="nav-tab active" id="tab-dashboard" onclick="goTo('dashboard')">
                 <i class="fas fa-home"></i> Dashboard
             </button>
-            <button class="nav-tab" onclick="showSection('seni-baca')">
-                <i class="fas fa-book-open"></i> Seni Baca Al-Qur'an
+            <button class="nav-tab" id="tab-seni-baca" onclick="goTo('seni-baca')">
+                <i class="fas fa-book-open"></i> Seni Baca
             </button>
-            <button class="nav-tab" onclick="showSection('qiraat-murattal')">
-                <i class="fas fa-volume-up"></i> Qira'at Murattal
+            <button class="nav-tab" id="tab-qiraat-murattal" onclick="goTo('qiraat-murattal')">
+                <i class="fas fa-volume-up"></i> Murattal
             </button>
-            <button class="nav-tab" onclick="showSection('hafalan')">
+            <button class="nav-tab" id="tab-hafalan" onclick="goTo('hafalan')">
                 <i class="fas fa-brain"></i> Hafalan
             </button>
-            <button class="nav-tab" onclick="showSection('syarhil')">
-                <i class="fas fa-comment-alt"></i> Syarhil Qur'an
+            <button class="nav-tab" id="tab-syarhil" onclick="goTo('syarhil')">
+                <i class="fas fa-comment-alt"></i> Syarhil
             </button>
-            <button class="nav-tab" onclick="showSection('rekapan')">
+            <button class="nav-tab" id="tab-rekapan" onclick="goTo('rekapan')">
                 <i class="fas fa-chart-bar"></i> Rekapan
             </button>
         </div>
     </nav>
 
     <div class="container">
-<!-- Dashboard Section -->
+
+        <!-- Dashboard Section -->
         <section id="dashboard" class="section active">
             <div class="card">
                 <div class="card-header">
                     <div>
                         <div class="card-title"><i class="fas fa-info-circle"></i> Petunjuk Penggunaan</div>
-                        <div class="card-subtitle">Sistem Penilaian Terintegrasi MTQ Nasional</div>
+                        <div class="card-subtitle">Sistem Penilaian MTQ Nasional</div>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                    <div style="padding: 1.5rem; background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 12px; border: 1px solid var(--border);">
-                        <i class="fas fa-calculator" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--primary);">Perhitungan Otomatis</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Sistem menghitung nilai akhir secara otomatis berdasarkan rumus penilaian resmi LPTQ Nasional.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div style="padding: 1.5rem; background: #e8f5e9; border-radius: 12px; border: 1px solid var(--border);">
+                        <i class="fas fa-calculator" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; display: block;"></i>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--primary); font-size: 1rem;">Perhitungan Otomatis</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nilai dihitung otomatis berdasarkan rumus LPTQ Nasional.</p>
                     </div>
-                    <div style="padding: 1.5rem; background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-radius: 12px; border: 1px solid #ffe0b2;">
-                        <i class="fas fa-clipboard-check" style="font-size: 2rem; color: #e65100; margin-bottom: 1rem;"></i>
-                        <h3 style="margin-bottom: 0.5rem; color: #e65100;">7 Cabang Penilaian</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Mencakup Seni Baca, Qira'at Mujawwad, Qira'at Murattal, Hafalan, Tafsir, dan Syarhil Qur'an.</p>
+                    <div style="padding: 1.5rem; background: #fff3e0; border-radius: 12px; border: 1px solid #ffe0b2;">
+                        <i class="fas fa-clipboard-check" style="font-size: 2rem; color: #e65100; margin-bottom: 0.5rem; display: block;"></i>
+                        <h3 style="margin-bottom: 0.5rem; color: #e65100; font-size: 1rem;">6 Cabang Penilaian</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Seni Baca, Murattal, Hafalan, Syarhil, dan Rekapan.</p>
                     </div>
-                    <div style="padding: 1.5rem; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 12px; border: 1px solid #bbdefb;">
-                        <i class="fas fa-chart-pie" style="font-size: 2rem; color: #1565c0; margin-bottom: 1rem;"></i>
-                        <h3 style="margin-bottom: 0.5rem; color: #1565c0;">Rekapan Real-time</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Lihat rekapan nilai akhir setiap cabang secara real-time dan terstruktur.</p>
+                    <div style="padding: 1.5rem; background: #e3f2fd; border-radius: 12px; border: 1px solid #bbdefb;">
+                        <i class="fas fa-chart-pie" style="font-size: 2rem; color: #1565c0; margin-bottom: 0.5rem; display: block;"></i>
+                        <h3 style="margin-bottom: 0.5rem; color: #1565c0; font-size: 1rem;">Rekapan Real-time</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Lihat rekapan nilai setiap cabang.</p>
                     </div>
                 </div>
 
-                <div style="margin-top: 2rem; padding: 1.5rem; background: #fff8e1; border-radius: 12px; border: 2px dashed var(--secondary);">
-                    <h4 style="color: #856404; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle"></i> Informasi Penting</h4>
-                    <ul style="margin-left: 1.5rem; color: #856404; font-size: 0.9rem;">
-                        <li>Masukkan data peserta pada formulir yang tersedia di setiap cabang</li>
-                        <li>Isikan jumlah kesalahan atau nilai sesuai ketentuan pada kolom yang disediakan</li>
-                        <li>Nilai akhir akan dihitung otomatis berdasarkan rumus yang berlaku</li>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: #fff8e1; border-radius: 12px; border: 2px dashed var(--secondary);">
+                    <h4 style="color: #856404; margin-bottom: 0.5rem; font-size: 0.95rem;"><i class="fas fa-exclamation-triangle"></i> Informasi Penting</h4>
+                    <ul style="margin-left: 1.5rem; color: #856404; font-size: 0.85rem;">
+                        <li>Masukkan data peserta pada formulir yang tersedia</li>
+                        <li>Isikan jumlah kesalahan sesuai ketentuan</li>
+                        <li>Nilai akhir dihitung otomatis</li>
                         <li>Gunakan tombol <strong>Simpan Data</strong> untuk menyimpan ke rekapan</li>
-                        <li>Rekapan dapat dilihat di menu <strong>Rekapan</strong> dan dapat dicetak</li>
                     </ul>
                 </div>
             </div>
@@ -535,381 +370,97 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title"><i class="fas fa-book-open"></i> Cabang: Seni Baca Al-Qur'an</div>
-                        <div class="card-subtitle">Penilaian meliputi Tajwid, Fashahah, Suara, dan Lagu</div>
+                        <div class="card-title"><i class="fas fa-book-open"></i> Seni Baca Al-Qur'an</div>
+                        <div class="card-subtitle">Tajwid, Fashahah, Suara, Lagu</div>
                     </div>
-                    <span class="score-badge" id="sb-total">0.00</span>
+                    <span class="score-badge" id="sb-total">100.00</span>
                 </div>
 
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label>Nomor Peserta</label>
-                        <input type="text" id="sb-nomor" placeholder="Contoh: 001">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Peserta</label>
-                        <input type="text" id="sb-nama" placeholder="Nama lengkap peserta">
-                    </div>
-                    <div class="form-group">
-                        <label>Jenis</label>
-                        <select id="sb-jenis">
-                            <option value="Qari">Qari</option>
-                            <option value="Qariah">Qariah</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Golongan</label>
-                        <select id="sb-golongan">
-                            <option value="Dewasa">Dewasa</option>
-                            <option value="Remaja">Remaja</option>
-                            <option value="Anak-anak">Anak-anak</option>
-                            <option value="Tuna Netra">Tuna Netra</option>
-                            <option value="HQ 1 Juz">HQ 1 Juz</option>
-                            <option value="HQ 5 Juz">HQ 5 Juz</option>
-                            <option value="Tilawah">Tilawah</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Babak</label>
-                        <select id="sb-babak">
-                            <option value="Penyisihan">Penyisihan</option>
-                            <option value="Final">Final</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Surat</label>
-                        <input type="text" id="sb-surat" placeholder="Contoh: Al-Baqarah ayat 1-10">
-                    </div>
+                    <div class="form-group"><label>Nomor Peserta</label><input type="text" id="sb-nomor" placeholder="001"></div>
+                    <div class="form-group"><label>Nama Peserta</label><input type="text" id="sb-nama" placeholder="Nama"></div>
+                    <div class="form-group"><label>Jenis</label><select id="sb-jenis"><option>Qari</option><option>Qariah</option></select></div>
+                    <div class="form-group"><label>Golongan</label><select id="sb-golongan"><option>Dewasa</option><option>Remaja</option><option>Anak-anak</option><option>Tuna Netra</option><option>HQ 1 Juz</option><option>HQ 5 Juz</option><option>Tilawah</option></select></div>
+                    <div class="form-group"><label>Babak</label><select id="sb-babak"><option>Penyisihan</option><option>Final</option></select></div>
+                    <div class="form-group"><label>Surat</label><input type="text" id="sb-surat" placeholder="Al-Baqarah 1-10"></div>
                 </div>
 
-                <!-- Tajwid (H/01) -->
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-spell-check"></i> 1. Penilaian Bidang Tajwid (Maks: 30)
-                </h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 30 - Jumlah Pengurangan (Salah Jali + Salah Khafi)</div>
+                <h4><i class="fas fa-spell-check"></i> 1. Tajwid (Maks: 30)</h4>
+                <div class="formula-box">Nilai = 30 - (Salah Jali x 2 + Salah Khafi x 0.5)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Jenis yang Dinilai</th>
-                                <th colspan="2">Salah Jali</th>
-                                <th colspan="2">Salah Khafi</th>
-                                <th>Jumlah</th>
-                                <th>Nilai</th>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.2);">
-                                <th></th><th></th>
-                                <th>Berapa Kali</th><th>Jumlah</th>
-                                <th>Berapa Kali</th><th>Jumlah</th>
-                                <th></th><th></th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jali (x2)</th><th>Khafi (x0.5)</th><th>Jumlah</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Makhrajul huruf</td>
-                                <td><input type="number" class="input-cell" id="sb-t1-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t1-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-t1-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t1-khafi">0</td>
-                                <td class="result-cell" id="sb-t1-jumlah">0</td>
-                                <td class="result-cell" id="sb-t1-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Sifatul huruf</td>
-                                <td><input type="number" class="input-cell" id="sb-t2-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t2-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-t2-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t2-khafi">0</td>
-                                <td class="result-cell" id="sb-t2-jumlah">0</td>
-                                <td class="result-cell" id="sb-t2-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Hukumul huruf</td>
-                                <td><input type="number" class="input-cell" id="sb-t3-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t3-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-t3-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t3-khafi">0</td>
-                                <td class="result-cell" id="sb-t3-jumlah">0</td>
-                                <td class="result-cell" id="sb-t3-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Ahkamul mad wal qashr</td>
-                                <td><input type="number" class="input-cell" id="sb-t4-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t4-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-t4-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-t4-khafi">0</td>
-                                <td class="result-cell" id="sb-t4-jumlah">0</td>
-                                <td class="result-cell" id="sb-t4-nilai">30</td>
-                            </tr>
-                            <tr style="background: var(--bg-light); font-weight: 700;">
-                                <td colspan="6" style="text-align: right;">Nilai Akhir Tajwid:</td>
-                                <td class="result-cell" id="sb-total-tajwid" colspan="2">30.00</td>
-                            </tr>
+                            <tr><td>1</td><td>Makhrajul huruf</td><td><input type="number" class="input-cell" id="sb-t1-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-t1-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-t1-jum">0</td><td class="result-cell" id="sb-t1-nilai">30</td></tr>
+                            <tr><td>2</td><td>Sifatul huruf</td><td><input type="number" class="input-cell" id="sb-t2-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-t2-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-t2-jum">0</td><td class="result-cell" id="sb-t2-nilai">30</td></tr>
+                            <tr><td>3</td><td>Hukumul huruf</td><td><input type="number" class="input-cell" id="sb-t3-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-t3-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-t3-jum">0</td><td class="result-cell" id="sb-t3-nilai">30</td></tr>
+                            <tr><td>4</td><td>Ahkamul mad wal qashr</td><td><input type="number" class="input-cell" id="sb-t4-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-t4-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-t4-jum">0</td><td class="result-cell" id="sb-t4-nilai">30</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="4" style="text-align:right">Nilai Tajwid:</td><td class="result-cell" id="sb-total-tajwid" colspan="2">30.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Fashahah (H/02) -->
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-voice"></i> 2. Penilaian Bidang Fashahah (Maks: 30)
-                </h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 30 - Jumlah Pengurangan (Salah Jali x 2 + Salah Khafi)</div>
+                <h4><i class="fas fa-voice"></i> 2. Fashahah (Maks: 30)</h4>
+                <div class="formula-box">Nilai = 30 - (Salah Jali x 2 + Salah Khafi x 0.5)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Jenis yang Dinilai</th>
-                                <th colspan="2">Salah Jali (x2)</th>
-                                <th colspan="2">Salah Khafi (x1/2)</th>
-                                <th>Jumlah</th>
-                                <th>Nilai</th>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.2);">
-                                <th></th><th></th>
-                                <th>Berapa Kali</th><th>Jumlah</th>
-                                <th>Berapa Kali</th><th>Jumlah</th>
-                                <th></th><th></th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jali (x2)</th><th>Khafi (x0.5)</th><th>Jumlah</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Ahkamul waqf wal ibtida'</td>
-                                <td><input type="number" class="input-cell" id="sb-f1-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f1-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-f1-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f1-khafi">0</td>
-                                <td class="result-cell" id="sb-f1-jumlah">0</td>
-                                <td class="result-cell" id="sb-f1-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Mura'atul huruf wal ibtida' bersih</td>
-                                <td><input type="number" class="input-cell" id="sb-f2-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f2-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-f2-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f2-khafi">0</td>
-                                <td class="result-cell" id="sb-f2-jumlah">0</td>
-                                <td class="result-cell" id="sb-f2-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Mura'atul kalimah</td>
-                                <td><input type="number" class="input-cell" id="sb-f3-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f3-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-f3-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f3-khafi">0</td>
-                                <td class="result-cell" id="sb-f3-jumlah">0</td>
-                                <td class="result-cell" id="sb-f3-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Mura'atul ayat</td>
-                                <td><input type="number" class="input-cell" id="sb-f4-jali-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f4-jali">0</td>
-                                <td><input type="number" class="input-cell" id="sb-f4-khafi-freq" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-f4-khafi">0</td>
-                                <td class="result-cell" id="sb-f4-jumlah">0</td>
-                                <td class="result-cell" id="sb-f4-nilai">30</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Tartamul waqf** (Maks -1 poin)</td>
-                                <td colspan="4" style="text-align: center; color: var(--text-muted);">Otomatis</td>
-                                <td class="result-cell" id="sb-f5-jumlah">0</td>
-                                <td class="result-cell" id="sb-f5-nilai">0</td>
-                            </tr>
-                            <tr style="background: var(--bg-light); font-weight: 700;">
-                                <td colspan="6" style="text-align: right;">Nilai Akhir Fashahah:</td>
-                                <td class="result-cell" id="sb-total-fashahah" colspan="2">30.00</td>
-                            </tr>
+                            <tr><td>1</td><td>Ahkamul waqf wal ibtida'</td><td><input type="number" class="input-cell" id="sb-f1-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-f1-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-f1-jum">0</td><td class="result-cell" id="sb-f1-nilai">30</td></tr>
+                            <tr><td>2</td><td>Mura'atul huruf</td><td><input type="number" class="input-cell" id="sb-f2-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-f2-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-f2-jum">0</td><td class="result-cell" id="sb-f2-nilai">30</td></tr>
+                            <tr><td>3</td><td>Mura'atul kalimah</td><td><input type="number" class="input-cell" id="sb-f3-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-f3-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-f3-jum">0</td><td class="result-cell" id="sb-f3-nilai">30</td></tr>
+                            <tr><td>4</td><td>Mura'atul ayat</td><td><input type="number" class="input-cell" id="sb-f4-jali" min="0" value="0" onchange="hitungSB()"></td><td><input type="number" class="input-cell" id="sb-f4-khafi" min="0" value="0" onchange="hitungSB()"></td><td class="result-cell" id="sb-f4-jum">0</td><td class="result-cell" id="sb-f4-nilai">30</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="4" style="text-align:right">Nilai Fashahah:</td><td class="result-cell" id="sb-total-fashahah" colspan="2">30.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Suara (H/03) -->
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-microphone"></i> 3. Penilaian Bidang Suara (Maks: 15)
-                </h4>
-                <div class="formula-box">Rumus: Perolehan = Input langsung (antara Min - Max). Nilai Akhir = 15 - Jumlah Pengurangan</div>
+                <h4><i class="fas fa-microphone"></i> 3. Suara (Maks: 15)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung (1-3 per item)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Materi yang Dinilai</th>
-                                <th>Nilai Max</th>
-                                <th>Nilai Min</th>
-                                <th>Pengurangan</th>
-                                <th>Jumlah</th>
-                                <th>Perolehan</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Materi</th><th>Nilai (1-3)</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Noktal dan Kemulian Suara</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-s1-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-s1-jumlah">3</td>
-                                <td><input type="number" class="input-cell" id="sb-s1-input" min="1" max="3" value="3" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Ketjernihan Suara</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-s2-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-s2-jumlah">3</td>
-                                <td><input type="number" class="input-cell" id="sb-s2-input" min="1" max="3" value="3" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Kelenturan Suara</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-s3-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-s3-jumlah">3</td>
-                                <td><input type="number" class="input-cell" id="sb-s3-input" min="1" max="3" value="3" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Kemantapan Suara</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-s4-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-s4-jumlah">3</td>
-                                <td><input type="number" class="input-cell" id="sb-s4-input" min="1" max="3" value="3" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Pengaturan Nafas</td>
-                                <td>3</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-s5-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-s5-jumlah">3</td>
-                                <td><input type="number" class="input-cell" id="sb-s5-input" min="1" max="3" value="3" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr style="background: var(--bg-light); font-weight: 700;">
-                                <td colspan="5" style="text-align: right;">Nilai Akhir Suara:</td>
-                                <td class="result-cell" id="sb-total-suara" colspan="2">15.00</td>
-                            </tr>
+                            <tr><td>1</td><td>Noktal dan Kemulian Suara</td><td><input type="number" class="input-cell" id="sb-s1" min="1" max="3" value="3" onchange="hitungSB()"></td></tr>
+                            <tr><td>2</td><td>Ketjernihan Suara</td><td><input type="number" class="input-cell" id="sb-s2" min="1" max="3" value="3" onchange="hitungSB()"></td></tr>
+                            <tr><td>3</td><td>Kelenturan Suara</td><td><input type="number" class="input-cell" id="sb-s3" min="1" max="3" value="3" onchange="hitungSB()"></td></tr>
+                            <tr><td>4</td><td>Kemantapan Suara</td><td><input type="number" class="input-cell" id="sb-s4" min="1" max="3" value="3" onchange="hitungSB()"></td></tr>
+                            <tr><td>5</td><td>Pengaturan Nafas</td><td><input type="number" class="input-cell" id="sb-s5" min="1" max="3" value="3" onchange="hitungSB()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Nilai Suara:</td><td class="result-cell" id="sb-total-suara">15.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Lagu (H/04) -->
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-music"></i> 4. Penilaian Bidang Lagu (Maks: 25)
-                </h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 25 - Jumlah Pengurangan</div>
+                <h4><i class="fas fa-music"></i> 4. Lagu (Maks: 25)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung (1-5 per item)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Jenis yang Dinilai</th>
-                                <th>Nilai Max</th>
-                                <th>Nilai Min</th>
-                                <th>Pengurangan</th>
-                                <th>Jumlah</th>
-                                <th>Perolehan</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Nilai (1-5)</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Lagu pertama dan penutup</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-l1-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-l1-jumlah">5</td>
-                                <td><input type="number" class="input-cell" id="sb-l1-input" min="1" max="5" value="5" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jumlah lagu</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-l2-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-l2-jumlah">5</td>
-                                <td><input type="number" class="input-cell" id="sb-l2-input" min="1" max="5" value="5" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Peralihan kesulitan & tempo lagu</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-l3-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-l3-jumlah">5</td>
-                                <td><input type="number" class="input-cell" id="sb-l3-input" min="1" max="5" value="5" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Irama, Gaya dan Penghayatan</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-l4-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-l4-jumlah">5</td>
-                                <td><input type="number" class="input-cell" id="sb-l4-input" min="1" max="5" value="5" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Variasi</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td><input type="number" class="input-cell" id="sb-l5-kurang" min="0" value="0" onchange="hitungSeniBaca()"></td>
-                                <td class="result-cell" id="sb-l5-jumlah">5</td>
-                                <td><input type="number" class="input-cell" id="sb-l5-input" min="1" max="5" value="5" onchange="hitungSeniBaca()"></td>
-                            </tr>
-                            <tr style="background: var(--bg-light); font-weight: 700;">
-                                <td colspan="5" style="text-align: right;">Nilai Akhir Lagu:</td>
-                                <td class="result-cell" id="sb-total-lagu" colspan="2">25.00</td>
-                            </tr>
+                            <tr><td>1</td><td>Lagu pertama dan penutup</td><td><input type="number" class="input-cell" id="sb-l1" min="1" max="5" value="5" onchange="hitungSB()"></td></tr>
+                            <tr><td>2</td><td>Jumlah lagu</td><td><input type="number" class="input-cell" id="sb-l2" min="1" max="5" value="5" onchange="hitungSB()"></td></tr>
+                            <tr><td>3</td><td>Peralihan kesulitan & tempo</td><td><input type="number" class="input-cell" id="sb-l3" min="1" max="5" value="5" onchange="hitungSB()"></td></tr>
+                            <tr><td>4</td><td>Irama, Gaya dan Penghayatan</td><td><input type="number" class="input-cell" id="sb-l4" min="1" max="5" value="5" onchange="hitungSB()"></td></tr>
+                            <tr><td>5</td><td>Variasi</td><td><input type="number" class="input-cell" id="sb-l5" min="1" max="5" value="5" onchange="hitungSB()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Nilai Lagu:</td><td class="result-cell" id="sb-total-lagu">25.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="rekap-section" style="margin-top: 2rem;">
-                    <div class="rekap-title"><i class="fas fa-star"></i> Rekap Nilai Seni Baca Al-Qur'an</div>
+                <div class="rekap-section">
+                    <div class="rekap-title" style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-star"></i> Rekap Nilai</div>
                     <div class="rekap-grid">
-                        <div class="rekap-item">
-                            <div class="rekap-label">Tajwid (30%)</div>
-                            <div class="rekap-value" id="sb-rekap-tajwid">30.00</div>
-                        </div>
-                        <div class="rekap-item">
-                            <div class="rekap-label">Fashahah (30%)</div>
-                            <div class="rekap-value" id="sb-rekap-fashahah">30.00</div>
-                        </div>
-                        <div class="rekap-item">
-                            <div class="rekap-label">Suara (15%)</div>
-                            <div class="rekap-value" id="sb-rekap-suara">15.00</div>
-                        </div>
-                        <div class="rekap-item">
-                            <div class="rekap-label">Lagu (25%)</div>
-                            <div class="rekap-value" id="sb-rekap-lagu">25.00</div>
-                        </div>
-                        <div class="rekap-item" style="grid-column: span 2; background: rgba(212,175,55,0.3);">
-                            <div class="rekap-label">TOTAL NILAI AKHIR</div>
-                            <div class="rekap-value" id="sb-rekap-total" style="font-size: 2.5rem;">100.00</div>
-                        </div>
+                        <div class="rekap-item"><div class="rekap-label">Tajwid</div><div class="rekap-value" id="sb-rekap-tajwid">30.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Fashahah</div><div class="rekap-value" id="sb-rekap-fashahah">30.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Suara</div><div class="rekap-value" id="sb-rekap-suara">15.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Lagu</div><div class="rekap-value" id="sb-rekap-lagu">25.00</div></div>
+                        <div class="rekap-item" style="grid-column: span 2; background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="sb-rekap-total" style="font-size: 2rem;">100.00</div></div>
                     </div>
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="simpanSeniBaca()">
-                        <i class="fas fa-save"></i> Simpan Data
-                    </button>
-                    <button class="btn btn-outline" onclick="resetSeniBaca()">
-                        <i class="fas fa-redo"></i> Reset Form
-                    </button>
+                    <button class="btn btn-primary" onclick="simpan('seni-baca')"><i class="fas fa-save"></i> Simpan Data</button>
+                    <button class="btn btn-outline" onclick="resetForm('seni-baca')"><i class="fas fa-redo"></i> Reset</button>
                 </div>
             </div>
         </section>
@@ -919,94 +470,80 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title"><i class="fas fa-volume-up"></i> Cabang: Qira'at Al-Qur'an - Murattal</div>
-                        <div class="card-subtitle">Qira'atus Sab'ah Murattal / Golongan: Qira'ah/Riwayah</div>
+                        <div class="card-title"><i class="fas fa-volume-up"></i> Qira'at Murattal</div>
+                        <div class="card-subtitle">Qira'atus Sab'ah Murattal</div>
                     </div>
-                    <span class="score-badge" id="qr-total">0.00</span>
+                    <span class="score-badge" id="qr-total">100.00</span>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group"><label>Nomor Peserta</label><input type="text" id="qr-nomor" placeholder="001"></div>
-                    <div class="form-group"><label>Nama Peserta</label><input type="text" id="qr-nama" placeholder="Nama lengkap"></div>
+                    <div class="form-group"><label>Nama Peserta</label><input type="text" id="qr-nama" placeholder="Nama"></div>
                     <div class="form-group"><label>Jenis</label><select id="qr-jenis"><option>Qari</option><option>Qariah</option></select></div>
-                    <div class="form-group"><label>Qira'ah/Riwayah</label><input type="text" id="qr-qiraah" placeholder="Contoh: Hafs 'an Asim"></div>
+                    <div class="form-group"><label>Qira'ah/Riwayah</label><input type="text" id="qr-qiraah" placeholder="Hafs an Asim"></div>
                     <div class="form-group"><label>Babak</label><select id="qr-babak"><option>Penyisihan</option><option>Final</option></select></div>
-                    <div class="form-group"><label>Surat</label><input type="text" id="qr-surat" placeholder="Al-Baqarah ayat 1-10"></div>
+                    <div class="form-group"><label>Surat</label><input type="text" id="qr-surat" placeholder="Al-Baqarah 1-10"></div>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-spell-check"></i> 1. Tajwid dan Kaidah Ushuliyah (Maks: 40, Min: 10)</h4>
-                <div class="formula-box">Rumus: Jumlah Nilai Akhir = 40 - Jumlah Kesalahan. Setiap Riwayat: -10 poin (kekurangan/kelebihan)</div>
+                <h4><i class="fas fa-spell-check"></i> 1. Tajwid & Ushuliyah (Maks: 40)</h4>
+                <div class="formula-box">Nilai = 40 - (Salah Jali x 2 + Salah Khafi x 0.5)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis yang Dinilai</th><th colspan="2">Salah Jali</th><th colspan="2">Salah Khafi</th><th>Jumlah</th><th>Nilai</th></tr>
-                            <tr style="background: rgba(255,255,255,0.2);"><th></th><th></th><th>Berapa Kali</th><th>Jumlah</th><th>Berapa Kali</th><th>Jumlah</th><th></th><th></th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jali (x2)</th><th>Khafi (x0.5)</th><th>Jumlah</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Makhrajul huruf</td><td><input type="number" class="input-cell" id="qr-t1-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t1-jali-val">0</td><td><input type="number" class="input-cell" id="qr-t1-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t1-khafi-val">0</td><td class="result-cell" id="qr-t1-jum">0</td><td class="result-cell" id="qr-t1-nilai">40</td></tr>
-                            <tr><td>2</td><td>Sifatul huruf</td><td><input type="number" class="input-cell" id="qr-t2-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t2-jali-val">0</td><td><input type="number" class="input-cell" id="qr-t2-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t2-khafi-val">0</td><td class="result-cell" id="qr-t2-jum">0</td><td class="result-cell" id="qr-t2-nilai">40</td></tr>
-                            <tr><td>3</td><td>Ahkamul huruf</td><td><input type="number" class="input-cell" id="qr-t3-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t3-jali-val">0</td><td><input type="number" class="input-cell" id="qr-t3-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t3-khafi-val">0</td><td class="result-cell" id="qr-t3-jum">0</td><td class="result-cell" id="qr-t3-nilai">40</td></tr>
-                            <tr><td>4</td><td>Ahkamul mad wal qashr</td><td><input type="number" class="input-cell" id="qr-t4-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t4-jali-val">0</td><td><input type="number" class="input-cell" id="qr-t4-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t4-khafi-val">0</td><td class="result-cell" id="qr-t4-jum">0</td><td class="result-cell" id="qr-t4-nilai">40</td></tr>
-                            <tr><td>5</td><td>Kaidah Ushuliyah</td><td><input type="number" class="input-cell" id="qr-t5-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t5-jali-val">0</td><td><input type="number" class="input-cell" id="qr-t5-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t5-khafi-val">0</td><td class="result-cell" id="qr-t5-jum">0</td><td class="result-cell" id="qr-t5-nilai">40</td></tr>
-                            <tr><td>6</td><td>Adabut tanzil</td><td><input type="number" class="input-cell" id="qr-t6-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t6-jali-val">0</td><td colspan="2" style="text-align:center">-</td><td class="result-cell" id="qr-t6-jum">0</td><td class="result-cell" id="qr-t6-nilai">0</td></tr>
-                            <tr><td>7</td><td>Adabut ta'dil</td><td colspan="2" style="text-align:center">-</td><td><input type="number" class="input-cell" id="qr-t7-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-t7-khafi-val">0</td><td class="result-cell" id="qr-t7-jum">0</td><td class="result-cell" id="qr-t7-nilai">40</td></tr>
-                            <tr><td>8</td><td>Tartamul waqf**</td><td colspan="4" style="text-align:center; color:var(--text-muted)">Otomatis (Maks -2 poin)</td><td class="result-cell" id="qr-t8-jum">0</td><td class="result-cell" id="qr-t8-nilai">0</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="6" style="text-align:right">Nilai Akhir Tajwid & Ushuliyah:</td><td class="result-cell" id="qr-total-tajwid" colspan="2">40.00</td></tr>
+                            <tr><td>1</td><td>Makhrajul huruf</td><td><input type="number" class="input-cell" id="qr-t1-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-t1-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-t1-jum">0</td><td class="result-cell" id="qr-t1-nilai">40</td></tr>
+                            <tr><td>2</td><td>Sifatul huruf</td><td><input type="number" class="input-cell" id="qr-t2-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-t2-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-t2-jum">0</td><td class="result-cell" id="qr-t2-nilai">40</td></tr>
+                            <tr><td>3</td><td>Ahkamul huruf</td><td><input type="number" class="input-cell" id="qr-t3-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-t3-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-t3-jum">0</td><td class="result-cell" id="qr-t3-nilai">40</td></tr>
+                            <tr><td>4</td><td>Ahkamul mad wal qashr</td><td><input type="number" class="input-cell" id="qr-t4-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-t4-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-t4-jum">0</td><td class="result-cell" id="qr-t4-nilai">40</td></tr>
+                            <tr><td>5</td><td>Kaidah Ushuliyah</td><td><input type="number" class="input-cell" id="qr-t5-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-t5-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-t5-jum">0</td><td class="result-cell" id="qr-t5-nilai">40</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="4" style="text-align:right">Nilai Tajwid:</td><td class="result-cell" id="qr-total-tajwid" colspan="2">40.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-voice"></i> 2. Fashahah dan Farsyul Huruf (Maks: 30, Min: 5)</h4>
-                <div class="formula-box">Rumus: Jumlah Nilai Akhir = 30 - Jumlah Kesalahan</div>
+                <h4><i class="fas fa-voice"></i> 2. Fashahah (Maks: 30)</h4>
+                <div class="formula-box">Nilai = 30 - (Salah Jali x 2 + Salah Khafi x 0.5)</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis yang Dinilai</th><th colspan="2">Salah Jali</th><th colspan="2">Salah Khafi</th><th>Jumlah</th><th>Nilai</th></tr>
-                            <tr style="background: rgba(255,255,255,0.2);"><th></th><th></th><th>Berapa Kali</th><th>Jumlah</th><th>Berapa Kali</th><th>Jumlah</th><th></th><th></th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jali (x2)</th><th>Khafi (x0.5)</th><th>Jumlah</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Mura'at riwayat wa rijal</td><td><input type="number" class="input-cell" id="qr-f1-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f1-jali-val">0</td><td colspan="2" style="text-align:center">-</td><td class="result-cell" id="qr-f1-jum">0</td><td class="result-cell" id="qr-f1-nilai">30</td></tr>
-                            <tr><td>2</td><td>Al-Waqf wal ibtida'</td><td><input type="number" class="input-cell" id="qr-f2-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f2-jali-val">0</td><td><input type="number" class="input-cell" id="qr-f2-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f2-khafi-val">0</td><td class="result-cell" id="qr-f2-jum">0</td><td class="result-cell" id="qr-f2-nilai">30</td></tr>
-                            <tr><td>3</td><td>Mura'at huruf wal harakat</td><td><input type="number" class="input-cell" id="qr-f3-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f3-jali-val">0</td><td><input type="number" class="input-cell" id="qr-f3-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f3-khafi-val">0</td><td class="result-cell" id="qr-f3-jum">0</td><td class="result-cell" id="qr-f3-nilai">30</td></tr>
-                            <tr><td>4</td><td>Mura'at kalimah wal ayat</td><td><input type="number" class="input-cell" id="qr-f4-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f4-jali-val">0</td><td colspan="2" style="text-align:center">-</td><td class="result-cell" id="qr-f4-jum">0</td><td class="result-cell" id="qr-f4-nilai">30</td></tr>
-                            <tr><td>5</td><td>Farsyul Huruf</td><td><input type="number" class="input-cell" id="qr-f5-jali" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f5-jali-val">0</td><td><input type="number" class="input-cell" id="qr-f5-khafi" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-f5-khafi-val">0</td><td class="result-cell" id="qr-f5-jum">0</td><td class="result-cell" id="qr-f5-nilai">30</td></tr>
-                            <tr><td>6</td><td>Tartamul riwayat*** (Maks -5 poin)</td><td colspan="4" style="text-align:center; color:var(--text-muted)">Otomatis</td><td class="result-cell" id="qr-f6-jum">0</td><td class="result-cell" id="qr-f6-nilai">0</td></tr>
-                            <tr><td>7</td><td>Tartamul waqf**** (Maks -2 poin)</td><td colspan="4" style="text-align:center; color:var(--text-muted)">Otomatis</td><td class="result-cell" id="qr-f7-jum">0</td><td class="result-cell" id="qr-f7-nilai">0</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="6" style="text-align:right">Nilai Akhir Fashahah:</td><td class="result-cell" id="qr-total-fashahah" colspan="2">30.00</td></tr>
+                            <tr><td>1</td><td>Mura'at riwayat wa rijal</td><td><input type="number" class="input-cell" id="qr-f1-jali" min="0" value="0" onchange="hitungQR()"></td><td>-</td><td class="result-cell" id="qr-f1-jum">0</td><td class="result-cell" id="qr-f1-nilai">30</td></tr>
+                            <tr><td>2</td><td>Al-Waqf wal ibtida'</td><td><input type="number" class="input-cell" id="qr-f2-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-f2-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-f2-jum">0</td><td class="result-cell" id="qr-f2-nilai">30</td></tr>
+                            <tr><td>3</td><td>Mura'at huruf wal harakat</td><td><input type="number" class="input-cell" id="qr-f3-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-f3-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-f3-jum">0</td><td class="result-cell" id="qr-f3-nilai">30</td></tr>
+                            <tr><td>4</td><td>Mura'at kalimah wal ayat</td><td><input type="number" class="input-cell" id="qr-f4-jali" min="0" value="0" onchange="hitungQR()"></td><td>-</td><td class="result-cell" id="qr-f4-jum">0</td><td class="result-cell" id="qr-f4-nilai">30</td></tr>
+                            <tr><td>5</td><td>Farsyul Huruf</td><td><input type="number" class="input-cell" id="qr-f5-jali" min="0" value="0" onchange="hitungQR()"></td><td><input type="number" class="input-cell" id="qr-f5-khafi" min="0" value="0" onchange="hitungQR()"></td><td class="result-cell" id="qr-f5-jum">0</td><td class="result-cell" id="qr-f5-nilai">30</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="4" style="text-align:right">Nilai Fashahah:</td><td class="result-cell" id="qr-total-fashahah" colspan="2">30.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-music"></i> 3. Irama dan Suara (Maks: 30, Min: 9)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 30 - Jumlah Pengurangan</div>
+                <h4><i class="fas fa-music"></i> 3. Irama & Suara (Maks: 30)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Materi yang Dinilai</th><th>Nilai Max</th><th>Nilai Min</th><th>Pengurangan</th><th>Jumlah</th><th>Perolehan</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Materi</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Irama dan variasi (lagu)</td><td>10</td><td>4</td><td><input type="number" class="input-cell" id="qr-i1-kurang" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-i1-jum">10</td><td><input type="number" class="input-cell" id="qr-i1-input" min="4" max="10" value="10" onchange="hitungQiraatMurattal()"></td></tr>
-                            <tr><td>2</td><td>Tempo bacaan/pengaturan nafas</td><td>10</td><td>3</td><td><input type="number" class="input-cell" id="qr-i2-kurang" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-i2-jum">10</td><td><input type="number" class="input-cell" id="qr-i2-input" min="3" max="10" value="10" onchange="hitungQiraatMurattal()"></td></tr>
-                            <tr><td>3</td><td>Suara</td><td>10</td><td>3</td><td><input type="number" class="input-cell" id="qr-i3-kurang" min="0" value="0" onchange="hitungQiraatMurattal()"></td><td class="result-cell" id="qr-i3-jum">10</td><td><input type="number" class="input-cell" id="qr-i3-input" min="3" max="10" value="10" onchange="hitungQiraatMurattal()"></td></tr>
-                            <tr><td>4</td><td>Tartamul waqf** (Maks -1 poin)</td><td colspan="2" style="text-align:center; color:var(--text-muted)">Otomatis</td><td colspan="2" style="text-align:center; color:var(--text-muted)">-</td><td class="result-cell" id="qr-i4-jum">0</td><td class="result-cell" id="qr-i4-nilai">0</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="5" style="text-align:right">Nilai Akhir Irama & Suara:</td><td class="result-cell" id="qr-total-irama" colspan="2">30.00</td></tr>
+                            <tr><td>1</td><td>Irama dan variasi (lagu)</td><td><input type="number" class="input-cell" id="qr-i1" min="4" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr><td>2</td><td>Tempo bacaan/pengaturan nafas</td><td><input type="number" class="input-cell" id="qr-i2" min="3" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr><td>3</td><td>Suara</td><td><input type="number" class="input-cell" id="qr-i3" min="3" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Nilai Irama & Suara:</td><td class="result-cell" id="qr-total-irama">30.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="rekap-section" style="margin-top: 2rem;">
-                    <div class="rekap-title"><i class="fas fa-star"></i> Rekap Nilai Qira'at Murattal</div>
+                <div class="rekap-section">
+                    <div class="rekap-title" style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-star"></i> Rekap Nilai</div>
                     <div class="rekap-grid">
-                        <div class="rekap-item"><div class="rekap-label">Tajwid & Ushuliyah (40%)</div><div class="rekap-value" id="qr-rekap-tajwid">40.00</div></div>
-                        <div class="rekap-item"><div class="rekap-label">Fashahah (30%)</div><div class="rekap-value" id="qr-rekap-fashahah">30.00</div></div>
-                        <div class="rekap-item"><div class="rekap-label">Irama & Suara (30%)</div><div class="rekap-value" id="qr-rekap-irama">30.00</div></div>
-                        <div class="rekap-item" style="grid-column: span 3; background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL NILAI AKHIR</div><div class="rekap-value" id="qr-rekap-total" style="font-size: 2.5rem;">100.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Tajwid</div><div class="rekap-value" id="qr-rekap-tajwid">40.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Fashahah</div><div class="rekap-value" id="qr-rekap-fashahah">30.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Irama</div><div class="rekap-value" id="qr-rekap-irama">30.00</div></div>
+                        <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="qr-rekap-total" style="font-size: 2rem;">100.00</div></div>
                     </div>
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="simpanQiraatMurattal()"><i class="fas fa-save"></i> Simpan Data</button>
-                    <button class="btn btn-outline" onclick="resetQiraatMurattal()"><i class="fas fa-redo"></i> Reset Form</button>
+                    <button class="btn btn-primary" onclick="simpan('qiraat-murattal')"><i class="fas fa-save"></i> Simpan Data</button>
+                    <button class="btn btn-outline" onclick="resetForm('qiraat-murattal')"><i class="fas fa-redo"></i> Reset</button>
                 </div>
             </div>
         </section>
@@ -1016,87 +553,80 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title"><i class="fas fa-brain"></i> Cabang: Hafalan Al-Qur'an</div>
-                        <div class="card-subtitle">Penilaian Tahfizh, Tajwid, dan Fashahah</div>
+                        <div class="card-title"><i class="fas fa-brain"></i> Hafalan Al-Qur'an</div>
+                        <div class="card-subtitle">Tahfizh, Tajwid, Fashahah</div>
                     </div>
-                    <span class="score-badge" id="h-total">0.00</span>
+                    <span class="score-badge" id="h-total">100.00</span>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group"><label>Nomor Peserta</label><input type="text" id="h-nomor" placeholder="001"></div>
-                    <div class="form-group"><label>Nama Peserta</label><input type="text" id="h-nama" placeholder="Nama lengkap"></div>
+                    <div class="form-group"><label>Nama Peserta</label><input type="text" id="h-nama" placeholder="Nama"></div>
                     <div class="form-group"><label>Jenis</label><select id="h-jenis"><option>Hafizh</option><option>Hafizhah</option></select></div>
-                    <div class="form-group"><label>Golongan</label><select id="h-golongan"><option>30 Juz</option><option>20 Juz</option><option>10 Juz</option><option>5 Juz</option><option>1 Juz</option><option>Tafsir Bhs. Arab/Indonesia/Inggris</option></select></div>
+                    <div class="form-group"><label>Golongan</label><select id="h-golongan"><option>30 Juz</option><option>20 Juz</option><option>10 Juz</option><option>5 Juz</option><option>1 Juz</option><option>Tafsir Bhs</option></select></div>
                     <div class="form-group"><label>Babak</label><select id="h-babak"><option>Penyisihan</option><option>Final</option></select></div>
-                    <div class="form-group"><label>Maqra'</label><input type="text" id="h-maqra" placeholder="Contoh: Juz 1"></div>
+                    <div class="form-group"><label>Maqra'</label><input type="text" id="h-maqra" placeholder="Juz 1"></div>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-memory"></i> 1. Penilaian Bidang Tahfizh (Maks: 50)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = Nilai Maksimal (50) - Jumlah Pengurangan. Khusus (X) untuk khafi dan (O) untuk jali</div>
+                <h4><i class="fas fa-memory"></i> 1. Tahfizh (Maks: 50)</h4>
+                <div class="formula-box">Nilai = 50 - Jumlah Pengurangan</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis Kesalahan</th><th>1</th><th>2</th><th>3</th><th>4</th><th>Jumlah</th><th>Catatan</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis Kesalahan</th><th>Jumlah</th><th>Kali</th><th>Total</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Tawaqquf</td><td><input type="checkbox" id="h-th1-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th1-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th1-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th1-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-th1-jum">0</td><td>x 2</td></tr>
-                            <tr><td>2</td><td>Tanaqqul turn</td><td><input type="checkbox" id="h-th2-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th2-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th2-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th2-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-th2-jum">0</td><td>x 10</td></tr>
-                            <tr><td>3</td><td>Subj al-Lisan<br>a. Tashif huruf awal kalimah awal ayat<br>b. Ziyadatul huruf awal kalimah<br>c. Tahdid huruf awal kalimah awal hurkat</td><td><input type="checkbox" id="h-th3-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th3-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th3-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th3-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-th3-jum">0</td><td>x 1/2<br>x 1/2<br>x 2</td></tr>
-                            <tr><td>4</td><td>Tahdid kalimah awal ayat</td><td><input type="checkbox" id="h-th4-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th4-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th4-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-th4-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-th4-jum">0</td><td>x 1/2<br>x 2</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="5" style="text-align:right">Jumlah Pengurangan:</td><td class="result-cell" id="h-th-total-kurang" colspan="2">0</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="5" style="text-align:right">Nilai Akhir Tahfizh:</td><td class="result-cell" id="h-total-tahfizh" colspan="2">50.00</td></tr>
+                            <tr><td>1</td><td>Tawaqquf</td><td><input type="number" class="input-cell" id="h-th1" min="0" value="0" onchange="hitungH()"></td><td>x 2</td><td class="result-cell" id="h-th1-total">0</td></tr>
+                            <tr><td>2</td><td>Tanaqqul turn</td><td><input type="number" class="input-cell" id="h-th2" min="0" value="0" onchange="hitungH()"></td><td>x 10</td><td class="result-cell" id="h-th2-total">0</td></tr>
+                            <tr><td>3</td><td>Subj al-Lisan</td><td><input type="number" class="input-cell" id="h-th3" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-th3-total">0</td></tr>
+                            <tr><td>4</td><td>Tahdid kalimah</td><td><input type="number" class="input-cell" id="h-th4" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-th4-total">0</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="3" style="text-align:right">Nilai Tahfizh:</td><td class="result-cell" id="h-total-tahfizh" colspan="2">50.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-spell-check"></i> 2. Penilaian Bidang Tajwid (Maks: 25)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 25 - Jumlah Pengurangan</div>
+                <h4><i class="fas fa-spell-check"></i> 2. Tajwid (Maks: 25)</h4>
+                <div class="formula-box">Nilai = 25 - Jumlah Pengurangan</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis Penilaian</th><th>1</th><th>2</th><th>3</th><th>4</th><th>Jumlah</th><th>Catatan</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jumlah</th><th>Kali</th><th>Total</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Makhrajul huruf</td><td><input type="checkbox" id="h-tj1-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj1-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj1-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj1-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-tj1-jum">0</td><td>x 3</td></tr>
-                            <tr><td>2</td><td>Sifatul huruf</td><td><input type="checkbox" id="h-tj2-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj2-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj2-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj2-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-tj2-jum">0</td><td>x 1/2</td></tr>
-                            <tr><td>3</td><td>Ahkamul huruf</td><td><input type="checkbox" id="h-tj3-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj3-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj3-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj3-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-tj3-jum">0</td><td>x 1/2</td></tr>
-                            <tr><td>4</td><td>Ahkamul mad wal qashr</td><td><input type="checkbox" id="h-tj4-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj4-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj4-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-tj4-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-tj4-jum">0</td><td>x 1/2</td></tr>
-                            <tr><td>5</td><td>Tawaqquf tam** (-4 poin)</td><td colspan="4" style="text-align:center"><input type="number" class="input-cell" id="h-tj5-input" min="0" value="0" onchange="hitungHafalan()"></td><td class="result-cell" id="h-tj5-jum">0</td><td>-4/setiap</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="5" style="text-align:right">Nilai Akhir Tajwid:</td><td class="result-cell" id="h-total-tajwid" colspan="2">25.00</td></tr>
+                            <tr><td>1</td><td>Makhrajul huruf</td><td><input type="number" class="input-cell" id="h-tj1" min="0" value="0" onchange="hitungH()"></td><td>x 3</td><td class="result-cell" id="h-tj1-total">0</td></tr>
+                            <tr><td>2</td><td>Sifatul huruf</td><td><input type="number" class="input-cell" id="h-tj2" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-tj2-total">0</td></tr>
+                            <tr><td>3</td><td>Ahkamul huruf</td><td><input type="number" class="input-cell" id="h-tj3" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-tj3-total">0</td></tr>
+                            <tr><td>4</td><td>Ahkamul mad wal qashr</td><td><input type="number" class="input-cell" id="h-tj4" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-tj4-total">0</td></tr>
+                            <tr><td>5</td><td>Tawaqquf tam</td><td><input type="number" class="input-cell" id="h-tj5" min="0" value="0" onchange="hitungH()"></td><td>x 4</td><td class="result-cell" id="h-tj5-total">0</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="3" style="text-align:right">Nilai Tajwid:</td><td class="result-cell" id="h-total-tajwid" colspan="2">25.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-voice"></i> 3. Penilaian Bidang Fashahah (Maks: 25)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = 25 - Jumlah Pengurangan</div>
+                <h4><i class="fas fa-voice"></i> 3. Fashahah (Maks: 25)</h4>
+                <div class="formula-box">Nilai = 25 - Jumlah Pengurangan</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis Penilaian</th><th>1</th><th>2</th><th>3</th><th>4</th><th>Jumlah</th><th>Catatan</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Jumlah</th><th>Kali</th><th>Total</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Ahkamul waqf wal ibtida'</td><td><input type="checkbox" id="h-f1-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f1-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f1-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f1-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-f1-jum">0</td><td>x 1/2</td></tr>
-                            <tr><td>2</td><td>Suara, Lagu dan Variasi** (-3 poin maks)</td><td colspan="4" style="text-align:center"><input type="number" class="input-cell" id="h-f2-input" min="0" max="3" value="0" onchange="hitungHafalan()"></td><td class="result-cell" id="h-f2-jum">0</td><td>Maks -3</td></tr>
-                            <tr><td>3</td><td>Tartamul hurriyah</td><td><input type="checkbox" id="h-f3-1" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f3-2" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f3-3" onchange="hitungHafalan()"></td><td><input type="checkbox" id="h-f3-4" onchange="hitungHafalan()"></td><td class="result-cell" id="h-f3-jum">0</td><td>x 1/2</td></tr>
-                            <tr><td>4</td><td>Tawaqquf tam*** (-4 poin)</td><td colspan="4" style="text-align:center"><input type="number" class="input-cell" id="h-f4-input" min="0" value="0" onchange="hitungHafalan()"></td><td class="result-cell" id="h-f4-jum">0</td><td>-4/setiap</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="5" style="text-align:right">Nilai Akhir Fashahah:</td><td class="result-cell" id="h-total-fashahah" colspan="2">25.00</td></tr>
+                            <tr><td>1</td><td>Ahkamul waqf wal ibtida'</td><td><input type="number" class="input-cell" id="h-f1" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-f1-total">0</td></tr>
+                            <tr><td>2</td><td>Suara, Lagu dan Variasi</td><td><input type="number" class="input-cell" id="h-f2" min="0" max="3" value="0" onchange="hitungH()"></td><td>x 3</td><td class="result-cell" id="h-f2-total">0</td></tr>
+                            <tr><td>3</td><td>Tartamul hurriyah</td><td><input type="number" class="input-cell" id="h-f3" min="0" value="0" onchange="hitungH()"></td><td>x 0.5</td><td class="result-cell" id="h-f3-total">0</td></tr>
+                            <tr><td>4</td><td>Tawaqquf tam</td><td><input type="number" class="input-cell" id="h-f4" min="0" value="0" onchange="hitungH()"></td><td>x 4</td><td class="result-cell" id="h-f4-total">0</td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="3" style="text-align:right">Nilai Fashahah:</td><td class="result-cell" id="h-total-fashahah" colspan="2">25.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="rekap-section" style="margin-top: 2rem;">
-                    <div class="rekap-title"><i class="fas fa-star"></i> Rekap Nilai Hafalan Al-Qur'an</div>
+                <div class="rekap-section">
+                    <div class="rekap-title" style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-star"></i> Rekap Nilai</div>
                     <div class="rekap-grid">
-                        <div class="rekap-item"><div class="rekap-label">Tahfizh (50%)</div><div class="rekap-value" id="h-rekap-tahfizh">50.00</div></div>
-                        <div class="rekap-item"><div class="rekap-label">Tajwid (25%)</div><div class="rekap-value" id="h-rekap-tajwid">25.00</div></div>
-                        <div class="rekap-item"><div class="rekap-label">Fashahah (25%)</div><div class="rekap-value" id="h-rekap-fashahah">25.00</div></div>
-                        <div class="rekap-item" style="grid-column: span 3; background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL NILAI AKHIR</div><div class="rekap-value" id="h-rekap-total" style="font-size: 2.5rem;">100.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Tahfizh</div><div class="rekap-value" id="h-rekap-tahfizh">50.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Tajwid</div><div class="rekap-value" id="h-rekap-tajwid">25.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Fashahah</div><div class="rekap-value" id="h-rekap-fashahah">25.00</div></div>
+                        <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="h-rekap-total" style="font-size: 2rem;">100.00</div></div>
                     </div>
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="simpanHafalan()"><i class="fas fa-save"></i> Simpan Data</button>
-                    <button class="btn btn-outline" onclick="resetHafalan()"><i class="fas fa-redo"></i> Reset Form</button>
+                    <button class="btn btn-primary" onclick="simpan('hafalan')"><i class="fas fa-save"></i> Simpan Data</button>
+                    <button class="btn btn-outline" onclick="resetForm('hafalan')"><i class="fas fa-redo"></i> Reset</button>
                 </div>
             </div>
         </section>
@@ -1106,64 +636,60 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title"><i class="fas fa-comment-alt"></i> Cabang: Syarhil Qur'an</div>
-                        <div class="card-subtitle">Penilaian Terjemah & Materi serta Penghayatan & Retorika</div>
+                        <div class="card-title"><i class="fas fa-comment-alt"></i> Syarhil Qur'an</div>
+                        <div class="card-subtitle">Terjemah & Materi, Penghayatan & Retorika</div>
                     </div>
-                    <span class="score-badge" id="sy-total">0.00</span>
+                    <span class="score-badge" id="sy-total">70.00</span>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group"><label>No. Peserta</label><input type="text" id="sy-nomor" placeholder="001"></div>
                     <div class="form-group"><label>Gilir</label><input type="text" id="sy-giliran" placeholder="Giliran"></div>
                     <div class="form-group"><label>Babak</label><select id="sy-babak"><option>Penyisihan</option><option>Final</option></select></div>
-                    <div class="form-group"><label>Topik</label><input type="text" id="sy-topik" placeholder="Nomor topik"></div>
+                    <div class="form-group"><label>Topik</label><input type="text" id="sy-topik" placeholder="No. Topik"></div>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-language"></i> 1. Bidang Terjemah dan Materi (Maks: 40, Min: 10)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = Sum(Perolehan)</div>
+                <h4><i class="fas fa-language"></i> 1. Terjemah dan Materi (Maks: 40)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis yang Dinilai</th><th>Nilai Maksimal</th><th>Nilai Minimal</th><th>Nilai Diperoleh</th><th>Catatan Nilai Akhir</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Ketepatan terjemah</td><td>10</td><td>3</td><td><input type="number" class="input-cell" id="sy-tm1" min="3" max="10" value="10" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-tm1-cat">10</td></tr>
-                            <tr><td>2</td><td>Sistematika dan isi</td><td>20</td><td>4</td><td><input type="number" class="input-cell" id="sy-tm2" min="4" max="20" value="20" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-tm2-cat">20</td></tr>
-                            <tr><td>3</td><td>Kaidah & gaya bahasa</td><td>10</td><td>3</td><td><input type="number" class="input-cell" id="sy-tm3" min="3" max="10" value="10" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-tm3-cat">10</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="3" style="text-align:right">Jumlah:</td><td>10</td><td class="result-cell" id="sy-tm-total">40</td><td></td></tr>
+                            <tr><td>1</td><td>Ketepatan terjemah (3-10)</td><td><input type="number" class="input-cell" id="sy-tm1" min="3" max="10" value="10" onchange="hitungSY()"></td></tr>
+                            <tr><td>2</td><td>Sistematika dan isi (4-20)</td><td><input type="number" class="input-cell" id="sy-tm2" min="4" max="20" value="20" onchange="hitungSY()"></td></tr>
+                            <tr><td>3</td><td>Kaidah & gaya bahasa (3-10)</td><td><input type="number" class="input-cell" id="sy-tm3" min="3" max="10" value="10" onchange="hitungSY()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Jumlah:</td><td class="result-cell" id="sy-tm-total">40.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);"><i class="fas fa-theater-masks"></i> 2. Bidang Penghayatan dan Retorika (Maks: 30, Min: 10)</h4>
-                <div class="formula-box">Rumus: Nilai Akhir = Sum(Perolehan)</div>
+                <h4><i class="fas fa-theater-masks"></i> 2. Penghayatan & Retorika (Maks: 30)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
                 <div class="table-container">
                     <table>
-                        <thead>
-                            <tr><th>No</th><th>Jenis yang Dinilai</th><th>Nilai Maksimal</th><th>Nilai Minimal</th><th>Nilai Diperoleh</th><th>Catatan Nilai Akhir</th></tr>
-                        </thead>
+                        <thead><tr><th>No</th><th>Jenis</th><th>Nilai</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>Vokal dan artikulasi</td><td>8</td><td>3</td><td><input type="number" class="input-cell" id="sy-pr1" min="3" max="8" value="8" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-pr1-cat">8</td></tr>
-                            <tr><td>2</td><td>Intonasi dan ekspresi</td><td>8</td><td>3</td><td><input type="number" class="input-cell" id="sy-pr2" min="3" max="8" value="8" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-pr2-cat">8</td></tr>
-                            <tr><td>3</td><td>Gaya dan mimik</td><td>8</td><td>2</td><td><input type="number" class="input-cell" id="sy-pr3" min="2" max="8" value="8" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-pr3-cat">8</td></tr>
-                            <tr><td>4</td><td>Kesopanan dan keserasian</td><td>6</td><td>2</td><td><input type="number" class="input-cell" id="sy-pr4" min="2" max="6" value="6" onchange="hitungSyarhil()"></td><td class="result-cell" id="sy-pr4-cat">6</td></tr>
-                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="3" style="text-align:right">Jumlah:</td><td>10</td><td class="result-cell" id="sy-pr-total">30</td><td></td></tr>
+                            <tr><td>1</td><td>Vokal dan artikulasi (3-8)</td><td><input type="number" class="input-cell" id="sy-pr1" min="3" max="8" value="8" onchange="hitungSY()"></td></tr>
+                            <tr><td>2</td><td>Intonasi dan ekspresi (3-8)</td><td><input type="number" class="input-cell" id="sy-pr2" min="3" max="8" value="8" onchange="hitungSY()"></td></tr>
+                            <tr><td>3</td><td>Gaya dan mimik (2-8)</td><td><input type="number" class="input-cell" id="sy-pr3" min="2" max="8" value="8" onchange="hitungSY()"></td></tr>
+                            <tr><td>4</td><td>Kesopanan dan keserasian (2-6)</td><td><input type="number" class="input-cell" id="sy-pr4" min="2" max="6" value="6" onchange="hitungSY()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Jumlah:</td><td class="result-cell" id="sy-pr-total">30.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="rekap-section" style="margin-top: 2rem;">
-                    <div class="rekap-title"><i class="fas fa-star"></i> Rekap Nilai Syarhil Qur'an</div>
+                <div class="rekap-section">
+                    <div class="rekap-title" style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-star"></i> Rekap Nilai</div>
                     <div class="rekap-grid">
-                        <div class="rekap-item"><div class="rekap-label">Terjemah & Materi (40%)</div><div class="rekap-value" id="sy-rekap-tm">40.00</div></div>
-                        <div class="rekap-item"><div class="rekap-label">Penghayatan & Retorika (30%)</div><div class="rekap-value" id="sy-rekap-pr">30.00</div></div>
-                        <div class="rekap-item" style="grid-column: span 2; background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL NILAI AKHIR</div><div class="rekap-value" id="sy-rekap-total" style="font-size: 2.5rem;">70.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Terjemah</div><div class="rekap-value" id="sy-rekap-tm">40.00</div></div>
+                        <div class="rekap-item"><div class="rekap-label">Penghayatan</div><div class="rekap-value" id="sy-rekap-pr">30.00</div></div>
+                        <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="sy-rekap-total" style="font-size: 2rem;">70.00</div></div>
                     </div>
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="simpanSyarhil()"><i class="fas fa-save"></i> Simpan Data</button>
-                    <button class="btn btn-outline" onclick="resetSyarhil()"><i class="fas fa-redo"></i> Reset Form</button>
+                    <button class="btn btn-primary" onclick="simpan('syarhil')"><i class="fas fa-save"></i> Simpan Data</button>
+                    <button class="btn btn-outline" onclick="resetForm('syarhil')"><i class="fas fa-redo"></i> Reset</button>
                 </div>
             </div>
         </section>
@@ -1173,10 +699,10 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title"><i class="fas fa-clipboard-list"></i> Rekapan Nilai Seluruh Cabang</div>
-                        <div class="card-subtitle">Data tersimpan dari setiap cabang penilaian</div>
+                        <div class="card-title"><i class="fas fa-clipboard-list"></i> Rekapan Nilai</div>
+                        <div class="card-subtitle">Data tersimpan dari setiap cabang</div>
                     </div>
-                    <button class="btn btn-primary" onclick="printRekapan()"><i class="fas fa-print"></i> Cetak</button>
+                    <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
                 </div>
 
                 <div class="table-container">
@@ -1186,18 +712,18 @@
                                 <th>No</th>
                                 <th>Cabang</th>
                                 <th>Nomor</th>
-                                <th>Nama Peserta</th>
+                                <th>Nama</th>
                                 <th>Golongan</th>
-                                <th>Nilai Komponen</th>
-                                <th>Total Akhir</th>
+                                <th>Nilai</th>
+                                <th>Total</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="rekapan-body">
                             <tr id="empty-rekapan">
                                 <td colspan="8" style="text-align:center; padding: 3rem; color: var(--text-muted);">
-                                    <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
-                                    Belum ada data tersimpan. Silakan isi dan simpan data dari setiap cabang penilaian.
+                                    <i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                                    Belum ada data tersimpan.
                                 </td>
                             </tr>
                         </tbody>
@@ -1210,630 +736,387 @@
                             <div class="summary-title">Total Peserta</div>
                             <div class="summary-score" id="rekap-total-peserta">0</div>
                         </div>
-                        <div class="summary-details">Seluruh cabang penilaian</div>
                     </div>
                     <div class="summary-card">
                         <div class="summary-header">
                             <div class="summary-title">Nilai Tertinggi</div>
                             <div class="summary-score" id="rekap-nilai-tertinggi">-</div>
                         </div>
-                        <div class="summary-details" id="rekap-tertinggi-detail">-</div>
                     </div>
                     <div class="summary-card">
                         <div class="summary-header">
-                            <div class="summary-title">Rata-rata Keseluruhan</div>
+                            <div class="summary-title">Rata-rata</div>
                             <div class="summary-score" id="rekap-rata-rata">-</div>
                         </div>
-                        <div class="summary-details">Dari semua cabang</div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    
-    </div>
-
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toast-message">Data berhasil disimpan!</span>
-    </div>
-
-<script>
+    <script>
         // Data storage
-        let rekapanData = [];
-        let currentId = 0;
+        var rekapanData = [];
+        var currentId = 0;
 
-        // Navigation
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            const clickedBtn = document.querySelector(`button[onclick="showSection('${sectionId}')"]`);
-            if (clickedBtn) clickedBtn.classList.add('active');
+        // Navigation function - using explicit button IDs
+        function goTo(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+
+            // Show selected section
+            var target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update nav tabs
+            var tabs = document.querySelectorAll('.nav-tab');
+            for (var j = 0; j < tabs.length; j++) {
+                tabs[j].classList.remove('active');
+            }
+
+            var activeTab = document.getElementById('tab-' + sectionId);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+
+            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Data storagefunction hitungSeniBaca() {
-            // Tajwid (H/01) - Max 30
-            let tajwidTotal = 30;
-            for(let i=1; i<=4; i++) {
-                let jali = parseFloat(document.getElementById('sb-t'+i+'-jali-freq').value) || 0;
-                let khafi = parseFloat(document.getElementById('sb-t'+i+'-khafi-freq').value) || 0;
-                let jaliTotal = jali * 2; // x2 for jali
-                let khafiTotal = khafi * 0.5; // x1/2 for khafi
-                document.getElementById('sb-t'+i+'-jali').textContent = jaliTotal.toFixed(1);
-                document.getElementById('sb-t'+i+'-khafi').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('sb-t'+i+'-jumlah').textContent = jumlah.toFixed(1);
-                let nilai = 30 - jumlah;
-                document.getElementById('sb-t'+i+'-nilai').textContent = nilai.toFixed(1);
+        // Seni Baca Calculation
+        function hitungSB() {
+            var tajwidTotal = 30;
+            for (var i = 1; i <= 4; i++) {
+                var jali = parseFloat(document.getElementById('sb-t' + i + '-jali').value) || 0;
+                var khafi = parseFloat(document.getElementById('sb-t' + i + '-khafi').value) || 0;
+                var jumlah = (jali * 2) + (khafi * 0.5);
+                document.getElementById('sb-t' + i + '-jum').textContent = jumlah.toFixed(1);
+                document.getElementById('sb-t' + i + '-nilai').textContent = (30 - jumlah).toFixed(1);
                 tajwidTotal -= jumlah;
             }
             tajwidTotal = Math.max(0, tajwidTotal);
             document.getElementById('sb-total-tajwid').textContent = tajwidTotal.toFixed(2);
             document.getElementById('sb-rekap-tajwid').textContent = tajwidTotal.toFixed(2);
 
-            // Fashahah (H/02) - Max 30
-            let fashahahTotal = 30;
-            let fItems = [
-                {id:1, jaliMul: 2, khafiMul: 0.5},
-                {id:2, jaliMul: 2, khafiMul: 0.5},
-                {id:3, jaliMul: 2, khafiMul: 0.5},
-                {id:4, jaliMul: 2, khafiMul: 0.5}
-            ];
-            fItems.forEach(item => {
-                let jali = parseFloat(document.getElementById('sb-f'+item.id+'-jali-freq').value) || 0;
-                let khafi = parseFloat(document.getElementById('sb-f'+item.id+'-khafi-freq').value) || 0;
-                let jaliTotal = jali * item.jaliMul;
-                let khafiTotal = khafi * item.khafiMul;
-                document.getElementById('sb-f'+item.id+'-jali').textContent = jaliTotal.toFixed(1);
-                document.getElementById('sb-f'+item.id+'-khafi').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('sb-f'+item.id+'-jumlah').textContent = jumlah.toFixed(1);
-                fashahahTotal -= jumlah;
-            });
+            var fashahahTotal = 30;
+            for (var f = 1; f <= 4; f++) {
+                var fjali = parseFloat(document.getElementById('sb-f' + f + '-jali').value) || 0;
+                var fkhafi = parseFloat(document.getElementById('sb-f' + f + '-khafi').value) || 0;
+                var fjumlah = (fjali * 2) + (fkhafi * 0.5);
+                document.getElementById('sb-f' + f + '-jum').textContent = fjumlah.toFixed(1);
+                document.getElementById('sb-f' + f + '-nilai').textContent = (30 - fjumlah).toFixed(1);
+                fashahahTotal -= fjumlah;
+            }
             fashahahTotal = Math.max(0, fashahahTotal);
             document.getElementById('sb-total-fashahah').textContent = fashahahTotal.toFixed(2);
             document.getElementById('sb-rekap-fashahah').textContent = fashahahTotal.toFixed(2);
 
-            // Suara (H/03) - Max 15
-            let suaraTotal = 0;
-            for(let i=1; i<=5; i++) {
-                let input = parseFloat(document.getElementById('sb-s'+i+'-input').value) || 0;
-                let kurang = parseFloat(document.getElementById('sb-s'+i+'-kurang').value) || 0;
-                let maxVal = 3;
-                let minVal = 1;
-                let jumlah = Math.max(minVal, Math.min(maxVal, input - kurang));
-                document.getElementById('sb-s'+i+'-jumlah').textContent = jumlah.toFixed(1);
-                document.getElementById('sb-s'+i+'-input').value = jumlah;
-                suaraTotal += jumlah;
+            var suaraTotal = 0;
+            for (var s = 1; s <= 5; s++) {
+                suaraTotal += parseFloat(document.getElementById('sb-s' + s).value) || 0;
             }
             document.getElementById('sb-total-suara').textContent = suaraTotal.toFixed(2);
             document.getElementById('sb-rekap-suara').textContent = suaraTotal.toFixed(2);
 
-            // Lagu (H/04) - Max 25
-            let laguTotal = 0;
-            for(let i=1; i<=5; i++) {
-                let input = parseFloat(document.getElementById('sb-l'+i+'-input').value) || 0;
-                let kurang = parseFloat(document.getElementById('sb-l'+i+'-kurang').value) || 0;
-                let maxVal = 5;
-                let minVal = 1;
-                let jumlah = Math.max(minVal, Math.min(maxVal, input - kurang));
-                document.getElementById('sb-l'+i+'-jumlah').textContent = jumlah.toFixed(1);
-                document.getElementById('sb-l'+i+'-input').value = jumlah;
-                laguTotal += jumlah;
+            var laguTotal = 0;
+            for (var l = 1; l <= 5; l++) {
+                laguTotal += parseFloat(document.getElementById('sb-l' + l).value) || 0;
             }
             document.getElementById('sb-total-lagu').textContent = laguTotal.toFixed(2);
             document.getElementById('sb-rekap-lagu').textContent = laguTotal.toFixed(2);
 
-            // Grand Total
-            let grandTotal = tajwidTotal + fashahahTotal + suaraTotal + laguTotal;
+            var grandTotal = tajwidTotal + fashahahTotal + suaraTotal + laguTotal;
             document.getElementById('sb-total').textContent = grandTotal.toFixed(2);
             document.getElementById('sb-rekap-total').textContent = grandTotal.toFixed(2);
         }
 
-        function simpanSeniBaca() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Seni Baca Al-Qur'an',
-                nomor: document.getElementById('sb-nomor').value || '-',
-                nama: document.getElementById('sb-nama').value || '-',
-                golongan: document.getElementById('sb-golongan').value,
-                nilai: {
-                    tajwid: parseFloat(document.getElementById('sb-total-tajwid').textContent),
-                    fashahah: parseFloat(document.getElementById('sb-total-fashahah').textContent),
-                    suara: parseFloat(document.getElementById('sb-total-suara').textContent),
-                    lagu: parseFloat(document.getElementById('sb-total-lagu').textContent)
-                },
-                total: parseFloat(document.getElementById('sb-rekap-total').textContent)
-            };
-            rekapanData.push(data);
-            updateRekapan();
-            showToast('Data Seni Baca berhasil disimpan!');
-        }
-
-        function resetSeniBaca() {
-            document.querySelectorAll('#seni-baca input[type="number"]').forEach(i => i.value = i.classList.contains('input-cell') && i.id.includes('input') ? i.max || 5 : 0);
-            document.querySelectorAll('#seni-baca input[type="text"]').forEach(i => i.value = '');
-            hitungSeniBaca();
-        }
-
-        // Qira'at Mujawwad Calculations
-        function hitungQiraatMujawwad() {
-            let tajwidTotal = 30;
-            for(let i=1; i<=7; i++) {
-                let jali = parseFloat(document.getElementById('qm-t'+i+'-jali').value) || 0;
-                let jaliMul = (i===4 || i===5 || i===6) ? 2 : (i===7 ? 0 : 1);
-                let khafi = parseFloat(document.getElementById('qm-t'+i+'-khafi').value) || 0;
-                let khafiMul = (i===1 || i===2 || i===3 || i===5 || i===7) ? 0.5 : (i===4 ? 0.5 : 0);
-                let jaliTotal = jali * jaliMul;
-                let khafiTotal = khafi * khafiMul;
-                if(document.getElementById('qm-t'+i+'-jali-val')) document.getElementById('qm-t'+i+'-jali-val').textContent = jaliTotal.toFixed(1);
-                if(document.getElementById('qm-t'+i+'-khafi-val')) document.getElementById('qm-t'+i+'-khafi-val').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('qm-t'+i+'-jum').textContent = jumlah.toFixed(1);
+        // Qira'at Murattal Calculation
+        function hitungQR() {
+            var tajwidTotal = 40;
+            for (var i = 1; i <= 5; i++) {
+                var jali = parseFloat(document.getElementById('qr-t' + i + '-jali').value) || 0;
+                var khafi = parseFloat(document.getElementById('qr-t' + i + '-khafi').value) || 0;
+                var jumlah = (jali * 2) + (khafi * 0.5);
+                document.getElementById('qr-t' + i + '-jum').textContent = jumlah.toFixed(1);
+                document.getElementById('qr-t' + i + '-nilai').textContent = (40 - jumlah).toFixed(1);
                 tajwidTotal -= jumlah;
             }
-            tajwidTotal = Math.max(5, tajwidTotal); // Min 5
-            document.getElementById('qm-total-tajwid').textContent = tajwidTotal.toFixed(2);
-            document.getElementById('qm-rekap-tajwid').textContent = tajwidTotal.toFixed(2);
-
-            let fashahahTotal = 30;
-            for(let i=1; i<=5; i++) {
-                let jali = parseFloat(document.getElementById('qm-f'+i+'-jali').value) || 0;
-                let jaliMul = (i===1 || i===2 || i===3 || i===4 || i===5) ? 2 : 1;
-                let khafi = parseFloat(document.getElementById('qm-f'+i+'-khafi').value) || 0;
-                let khafiMul = (i===2 || i===3 || i===5) ? 0.5 : 0;
-                let jaliTotal = jali * jaliMul;
-                let khafiTotal = khafi * khafiMul;
-                if(document.getElementById('qm-f'+i+'-jali-val')) document.getElementById('qm-f'+i+'-jali-val').textContent = jaliTotal.toFixed(1);
-                if(document.getElementById('qm-f'+i+'-khafi-val')) document.getElementById('qm-f'+i+'-khafi-val').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('qm-f'+i+'-jum').textContent = jumlah.toFixed(1);
-                fashahahTotal -= jumlah;
-            }
-            fashahahTotal = Math.max(5, fashahahTotal); // Min 5
-            document.getElementById('qm-total-fashahah').textContent = fashahahTotal.toFixed(2);
-            document.getElementById('qm-rekap-fashahah').textContent = fashahahTotal.toFixed(2);
-
-            // Lagu - Max 25
-            let laguTotal = 0;
-            for(let i=1; i<=5; i++) {
-                let input = parseFloat(document.getElementById('qm-l'+i+'-input').value) || 0;
-                let kurang = parseFloat(document.getElementById('qm-l'+i+'-kurang').value) || 0;
-                let jumlah = Math.max(1, Math.min(5, input - kurang));
-                document.getElementById('qm-l'+i+'-jum').textContent = jumlah.toFixed(1);
-                document.getElementById('qm-l'+i+'-input').value = jumlah;
-                laguTotal += jumlah;
-            }
-            document.getElementById('qm-total-lagu').textContent = laguTotal.toFixed(2);
-            document.getElementById('qm-rekap-lagu').textContent = laguTotal.toFixed(2);
-
-            // Suara - Max 15
-            let suaraTotal = 0;
-            for(let i=1; i<=5; i++) {
-                let input = parseFloat(document.getElementById('qm-s'+i+'-input').value) || 0;
-                let kurang = parseFloat(document.getElementById('qm-s'+i+'-kurang').value) || 0;
-                let jumlah = Math.max(1, Math.min(3, input - kurang));
-                document.getElementById('qm-s'+i+'-jum').textContent = jumlah.toFixed(1);
-                document.getElementById('qm-s'+i+'-input').value = jumlah;
-                suaraTotal += jumlah;
-            }
-            document.getElementById('qm-total-suara').textContent = suaraTotal.toFixed(2);
-            document.getElementById('qm-rekap-suara').textContent = suaraTotal.toFixed(2);
-
-            let grandTotal = tajwidTotal + fashahahTotal + laguTotal + suaraTotal;
-            document.getElementById('qm-total').textContent = grandTotal.toFixed(2);
-            document.getElementById('qm-rekap-total').textContent = grandTotal.toFixed(2);
-        }
-
-        function simpanQiraatMujawwad() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Qira'at Mujawwad',
-                nomor: document.getElementById('qm-nomor').value || '-',
-                nama: document.getElementById('qm-nama').value || '-',
-                golongan: document.getElementById('qm-qiraah').value || '-',
-                nilai: {
-                    tajwid: parseFloat(document.getElementById('qm-total-tajwid').textContent),
-                    fashahah: parseFloat(document.getElementById('qm-total-fashahah').textContent),
-                    lagu: parseFloat(document.getElementById('qm-total-lagu').textContent),
-                    suara: parseFloat(document.getElementById('qm-total-suara').textContent)
-                },
-                total: parseFloat(document.getElementById('qm-rekap-total').textContent)
-            };
-            rekapanData.push(data);
-            updateRekapan();
-            showToast('Data Qira'at Mujawwad berhasil disimpan!');
-        }
-
-        function resetQiraatMujawwad() {
-            document.querySelectorAll('#qiraat-mujawwad input[type="number"]').forEach(i => i.value = i.classList.contains('input-cell') && i.id.includes('input') ? (i.max || 5) : 0);
-            document.querySelectorAll('#qiraat-mujawwad input[type="text"]').forEach(i => i.value = '');
-            hitungQiraatMujawwad();
-        }
-
-        // Qira'at Murattal Calculations
-        function hitungQiraatMurattal() {
-            let tajwidTotal = 40;
-            for(let i=1; i<=7; i++) {
-                let jali = parseFloat(document.getElementById('qr-t'+i+'-jali').value) || 0;
-                let jaliMul = (i===4 || i===5 || i===6) ? 2 : 1;
-                let khafi = parseFloat(document.getElementById('qr-t'+i+'-khafi').value) || 0;
-                let khafiMul = (i===1 || i===2 || i===3 || i===5 || i===7) ? 0.5 : (i===4 ? 0.5 : 0);
-                let jaliTotal = jali * jaliMul;
-                let khafiTotal = khafi * khafiMul;
-                if(document.getElementById('qr-t'+i+'-jali-val')) document.getElementById('qr-t'+i+'-jali-val').textContent = jaliTotal.toFixed(1);
-                if(document.getElementById('qr-t'+i+'-khafi-val')) document.getElementById('qr-t'+i+'-khafi-val').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('qr-t'+i+'-jum').textContent = jumlah.toFixed(1);
-                tajwidTotal -= jumlah;
-            }
-            tajwidTotal = Math.max(10, tajwidTotal); // Min 10
+            tajwidTotal = Math.max(10, tajwidTotal);
             document.getElementById('qr-total-tajwid').textContent = tajwidTotal.toFixed(2);
             document.getElementById('qr-rekap-tajwid').textContent = tajwidTotal.toFixed(2);
 
-            let fashahahTotal = 30;
-            for(let i=1; i<=5; i++) {
-                let jali = parseFloat(document.getElementById('qr-f'+i+'-jali').value) || 0;
-                let jaliMul = 2;
-                let khafi = parseFloat(document.getElementById('qr-f'+i+'-khafi').value) || 0;
-                let khafiMul = (i===2 || i===3 || i===5) ? 0.5 : 0;
-                let jaliTotal = jali * jaliMul;
-                let khafiTotal = khafi * khafiMul;
-                if(document.getElementById('qr-f'+i+'-jali-val')) document.getElementById('qr-f'+i+'-jali-val').textContent = jaliTotal.toFixed(1);
-                if(document.getElementById('qr-f'+i+'-khafi-val')) document.getElementById('qr-f'+i+'-khafi-val').textContent = khafiTotal.toFixed(1);
-                let jumlah = jaliTotal + khafiTotal;
-                document.getElementById('qr-f'+i+'-jum').textContent = jumlah.toFixed(1);
-                fashahahTotal -= jumlah;
+            var fashahahTotal = 30;
+            for (var f = 1; f <= 5; f++) {
+                var fjali = parseFloat(document.getElementById('qr-f' + f + '-jali').value) || 0;
+                var fkhafiEl = document.getElementById('qr-f' + f + '-khafi');
+                var fkhafi = fkhafiEl ? (parseFloat(fkhafiEl.value) || 0) : 0;
+                var fjumlah = (fjali * 2) + (fkhafi * 0.5);
+                document.getElementById('qr-f' + f + '-jum').textContent = fjumlah.toFixed(1);
+                document.getElementById('qr-f' + f + '-nilai').textContent = (30 - fjumlah).toFixed(1);
+                fashahahTotal -= fjumlah;
             }
-            fashahahTotal = Math.max(5, fashahahTotal); // Min 5
+            fashahahTotal = Math.max(5, fashahahTotal);
             document.getElementById('qr-total-fashahah').textContent = fashahahTotal.toFixed(2);
             document.getElementById('qr-rekap-fashahah').textContent = fashahahTotal.toFixed(2);
 
-            // Irama dan Suara - Max 30
-            let iramaTotal = 0;
-            for(let i=1; i<=3; i++) {
-                let input = parseFloat(document.getElementById('qr-i'+i+'-input').value) || 0;
-                let kurang = parseFloat(document.getElementById('qr-i'+i+'-kurang').value) || 0;
-                let minVal = (i===1) ? 4 : 3;
-                let jumlah = Math.max(minVal, Math.min(10, input - kurang));
-                document.getElementById('qr-i'+i+'-jum').textContent = jumlah.toFixed(1);
-                document.getElementById('qr-i'+i+'-input').value = jumlah;
-                iramaTotal += jumlah;
+            var iramaTotal = 0;
+            for (var ir = 1; ir <= 3; ir++) {
+                iramaTotal += parseFloat(document.getElementById('qr-i' + ir).value) || 0;
             }
             document.getElementById('qr-total-irama').textContent = iramaTotal.toFixed(2);
             document.getElementById('qr-rekap-irama').textContent = iramaTotal.toFixed(2);
 
-            let grandTotal = tajwidTotal + fashahahTotal + iramaTotal;
+            var grandTotal = tajwidTotal + fashahahTotal + iramaTotal;
             document.getElementById('qr-total').textContent = grandTotal.toFixed(2);
             document.getElementById('qr-rekap-total').textContent = grandTotal.toFixed(2);
         }
 
-        function simpanQiraatMurattal() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Qira'at Murattal',
-                nomor: document.getElementById('qr-nomor').value || '-',
-                nama: document.getElementById('qr-nama').value || '-',
-                golongan: document.getElementById('qr-qiraah').value || '-',
-                nilai: {
-                    tajwid: parseFloat(document.getElementById('qr-total-tajwid').textContent),
-                    fashahah: parseFloat(document.getElementById('qr-total-fashahah').textContent),
-                    irama: parseFloat(document.getElementById('qr-total-irama').textContent)
-                },
-                total: parseFloat(document.getElementById('qr-rekap-total').textContent)
-            };
-            rekapanData.push(data);
-            updateRekapan();
-            showToast('Data Qira'at Murattal berhasil disimpan!');
-        }
-
-        function resetQiraatMurattal() {
-            document.querySelectorAll('#qiraat-murattal input[type="number"]').forEach(i => i.value = i.classList.contains('input-cell') && i.id.includes('input') ? (i.max || 10) : 0);
-            document.querySelectorAll('#qiraat-murattal input[type="text"]').forEach(i => i.value = '');
-            hitungQiraatMurattal();
-        }
-
-        // Hafalan Calculations
-        function hitungHafalan() {
-            // Tahfizh - Max 50
-            let tahfizhTotal = 50;
-            let thPengurangan = 0;
-
-            // Tawaqquf x2
-            let th1Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-th1-'+j).checked) th1Count++;
-            let th1Jum = th1Count * 2;
-            document.getElementById('h-th1-jum').textContent = th1Jum;
-            thPengurangan += th1Jum;
-
-            // Tanaqqul turn x10
-            let th2Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-th2-'+j).checked) th2Count++;
-            let th2Jum = th2Count * 10;
-            document.getElementById('h-th2-jum').textContent = th2Jum;
-            thPengurangan += th2Jum;
-
-            // Subj al-Lisan (avg x1)
-            let th3Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-th3-'+j).checked) th3Count++;
-            let th3Jum = th3Count * 0.5; // avg
-            document.getElementById('h-th3-jum').textContent = th3Jum;
-            thPengurangan += th3Jum;
-
-            // Tahdid kalimah
-            let th4Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-th4-'+j).checked) th4Count++;
-            let th4Jum = th4Count * 0.5; // avg
-            document.getElementById('h-th4-jum').textContent = th4Jum;
-            thPengurangan += th4Jum;
-
-            document.getElementById('h-th-total-kurang').textContent = thPengurangan.toFixed(1);
-            let tahfizhFinal = Math.max(0, 50 - thPengurangan);
-            document.getElementById('h-total-tahfizh').textContent = tahfizhFinal.toFixed(2);
-            document.getElementById('h-rekap-tahfizh').textContent = tahfizhFinal.toFixed(2);
-
-            // Tajwid - Max 25
-            let tajwidTotal = 25;
-            for(let i=1; i<=4; i++) {
-                let count = 0;
-                for(let j=1; j<=4; j++) if(document.getElementById('h-tj'+i+'-'+j).checked) count++;
-                let mul = (i===1) ? 3 : 0.5;
-                let jum = count * mul;
-                document.getElementById('h-tj'+i+'-jum').textContent = jum.toFixed(1);
-                tajwidTotal -= jum;
+        // Hafalan Calculation
+        function hitungH() {
+            var tahfizhTotal = 50;
+            var thItems = [
+                {id: 1, mul: 2},
+                {id: 2, mul: 10},
+                {id: 3, mul: 0.5},
+                {id: 4, mul: 0.5}
+            ];
+            for (var i = 0; i < thItems.length; i++) {
+                var val = parseFloat(document.getElementById('h-th' + thItems[i].id).value) || 0;
+                var total = val * thItems[i].mul;
+                document.getElementById('h-th' + thItems[i].id + '-total').textContent = total.toFixed(1);
+                tahfizhTotal -= total;
             }
-            // Tawaqquf tam
-            let tj5 = parseFloat(document.getElementById('h-tj5-input').value) || 0;
-            let tj5Jum = tj5 * 4;
-            document.getElementById('h-tj5-jum').textContent = tj5Jum;
-            tajwidTotal -= tj5Jum;
+            tahfizhTotal = Math.max(0, tahfizhTotal);
+            document.getElementById('h-total-tahfizh').textContent = tahfizhTotal.toFixed(2);
+            document.getElementById('h-rekap-tahfizh').textContent = tahfizhTotal.toFixed(2);
+
+            var tajwidTotal = 25;
+            var tjItems = [
+                {id: 1, mul: 3},
+                {id: 2, mul: 0.5},
+                {id: 3, mul: 0.5},
+                {id: 4, mul: 0.5},
+                {id: 5, mul: 4}
+            ];
+            for (var j = 0; j < tjItems.length; j++) {
+                var tval = parseFloat(document.getElementById('h-tj' + tjItems[j].id).value) || 0;
+                var ttotal = tval * tjItems[j].mul;
+                document.getElementById('h-tj' + tjItems[j].id + '-total').textContent = ttotal.toFixed(1);
+                tajwidTotal -= ttotal;
+            }
             tajwidTotal = Math.max(0, tajwidTotal);
             document.getElementById('h-total-tajwid').textContent = tajwidTotal.toFixed(2);
             document.getElementById('h-rekap-tajwid').textContent = tajwidTotal.toFixed(2);
 
-            // Fashahah - Max 25
-            let fashahahTotal = 25;
-            let f1Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-f1-'+j).checked) f1Count++;
-            let f1Jum = f1Count * 0.5;
-            document.getElementById('h-f1-jum').textContent = f1Jum.toFixed(1);
-            fashahahTotal -= f1Jum;
-
-            let f2 = parseFloat(document.getElementById('h-f2-input').value) || 0;
-            let f2Jum = f2 * 3; // maks -3
-            document.getElementById('h-f2-jum').textContent = f2Jum;
-            fashahahTotal -= f2Jum;
-
-            let f3Count = 0;
-            for(let j=1; j<=4; j++) if(document.getElementById('h-f3-'+j).checked) f3Count++;
-            let f3Jum = f3Count * 0.5;
-            document.getElementById('h-f3-jum').textContent = f3Jum.toFixed(1);
-            fashahahTotal -= f3Jum;
-
-            let f4 = parseFloat(document.getElementById('h-f4-input').value) || 0;
-            let f4Jum = f4 * 4;
-            document.getElementById('h-f4-jum').textContent = f4Jum;
-            fashahahTotal -= f4Jum;
-
+            var fashahahTotal = 25;
+            var fItems = [
+                {id: 1, mul: 0.5},
+                {id: 2, mul: 3},
+                {id: 3, mul: 0.5},
+                {id: 4, mul: 4}
+            ];
+            for (var k = 0; k < fItems.length; k++) {
+                var fval = parseFloat(document.getElementById('h-f' + fItems[k].id).value) || 0;
+                var ftotal = fval * fItems[k].mul;
+                document.getElementById('h-f' + fItems[k].id + '-total').textContent = ftotal.toFixed(1);
+                fashahahTotal -= ftotal;
+            }
             fashahahTotal = Math.max(0, fashahahTotal);
             document.getElementById('h-total-fashahah').textContent = fashahahTotal.toFixed(2);
             document.getElementById('h-rekap-fashahah').textContent = fashahahTotal.toFixed(2);
 
-            let grandTotal = tahfizhFinal + tajwidTotal + fashahahTotal;
+            var grandTotal = tahfizhTotal + tajwidTotal + fashahahTotal;
             document.getElementById('h-total').textContent = grandTotal.toFixed(2);
             document.getElementById('h-rekap-total').textContent = grandTotal.toFixed(2);
         }
 
-        function simpanHafalan() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Hafalan Al-Qur'an',
-                nomor: document.getElementById('h-nomor').value || '-',
-                nama: document.getElementById('h-nama').value || '-',
-                golongan: document.getElementById('h-golongan').value,
-                nilai: {
-                    tahfizh: parseFloat(document.getElementById('h-total-tahfizh').textContent),
-                    tajwid: parseFloat(document.getElementById('h-total-tajwid').textContent),
-                    fashahah: parseFloat(document.getElementById('h-total-fashahah').textContent)
-                },
-                total: parseFloat(document.getElementById('h-rekap-total').textContent)
-            };
-            rekapanData.push(data);
-            updateRekapan();
-            showToast('Data Hafalan berhasil disimpan!');
-        }
-
-        function resetHafalan() {
-            document.querySelectorAll('#hafalan input[type="checkbox"]').forEach(i => i.checked = false);
-            document.querySelectorAll('#hafalan input[type="number"]').forEach(i => i.value = 0);
-            document.querySelectorAll('#hafalan input[type="text"]').forEach(i => i.value = '');
-            hitungHafalan();
-        }
-
-        // Tafsir Calculations
-        function hitungTafsir() {
-            let n1 = parseFloat(document.getElementById('t-1').value) || 0;
-            let n2 = parseFloat(document.getElementById('t-2').value) || 0;
-            let n3a = parseFloat(document.getElementById('t-3a').value) || 0;
-            let n3b = parseFloat(document.getElementById('t-3b').value) || 0;
-            let n3c = parseFloat(document.getElementById('t-3c').value) || 0;
-            let n4 = parseFloat(document.getElementById('t-4').value) || 0;
-
-            document.getElementById('t-rekap-1').textContent = n1.toFixed(2);
-            document.getElementById('t-rekap-2').textContent = n2.toFixed(2);
-            document.getElementById('t-rekap-3a').textContent = n3a.toFixed(2);
-            document.getElementById('t-rekap-3b').textContent = n3b.toFixed(2);
-            document.getElementById('t-rekap-3c').textContent = n3c.toFixed(2);
-            document.getElementById('t-rekap-4').textContent = n4.toFixed(2);
-
-            let total = n1 + n2 + n3a + n3b + n3c + n4;
-            document.getElementById('t-total-nilai').textContent = total.toFixed(2);
-            document.getElementById('t-total').textContent = total.toFixed(2);
-            document.getElementById('t-rekap-total').textContent = total.toFixed(2);
-        }
-
-        function simpanTafsir() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Tafsir Al-Qur'an',
-                nomor: document.getElementById('t-nomor').value || '-',
-                nama: document.getElementById('t-nama').value || '-',
-                golongan: document.getElementById('t-bahasa').value,
-                nilai: {
-                    kosaKata: parseFloat(document.getElementById('t-1').value),
-                    korelasi: parseFloat(document.getElementById('t-2').value),
-                    tafsir: parseFloat(document.getElementById('t-3a').value),
-                    wawasan: parseFloat(document.getElementById('t-3b').value),
-                    dirasah: parseFloat(document.getElementById('t-3c').value),
-                    tabir: parseFloat(document.getElementById('t-4').value)
-                },
-                total: parseFloat(document.getElementById('t-total-nilai').textContent)
-            };
-            rekapanData.push(data);
-            updateRekapan();
-            showToast('Data Tafsir berhasil disimpan!');
-        }
-
-        function resetTafsir() {
-            document.getElementById('t-1').value = 10;
-            document.getElementById('t-2').value = 20;
-            document.getElementById('t-3a').value = 20;
-            document.getElementById('t-3b').value = 20;
-            document.getElementById('t-3c').value = 10;
-            document.getElementById('t-4').value = 20;
-            document.querySelectorAll('#tafsir input[type="text"]').forEach(i => i.value = '');
-            hitungTafsir();
-        }
-
-        // Syarhil Calculations
-        function hitungSyarhil() {
-            let tm1 = parseFloat(document.getElementById('sy-tm1').value) || 0;
-            let tm2 = parseFloat(document.getElementById('sy-tm2').value) || 0;
-            let tm3 = parseFloat(document.getElementById('sy-tm3').value) || 0;
-
-            document.getElementById('sy-tm1-cat').textContent = tm1.toFixed(1);
-            document.getElementById('sy-tm2-cat').textContent = tm2.toFixed(1);
-            document.getElementById('sy-tm3-cat').textContent = tm3.toFixed(1);
-
-            let tmTotal = tm1 + tm2 + tm3;
+        // Syarhil Calculation
+        function hitungSY() {
+            var tmTotal = 0;
+            for (var i = 1; i <= 3; i++) {
+                tmTotal += parseFloat(document.getElementById('sy-tm' + i).value) || 0;
+            }
             document.getElementById('sy-tm-total').textContent = tmTotal.toFixed(2);
             document.getElementById('sy-rekap-tm').textContent = tmTotal.toFixed(2);
 
-            let pr1 = parseFloat(document.getElementById('sy-pr1').value) || 0;
-            let pr2 = parseFloat(document.getElementById('sy-pr2').value) || 0;
-            let pr3 = parseFloat(document.getElementById('sy-pr3').value) || 0;
-            let pr4 = parseFloat(document.getElementById('sy-pr4').value) || 0;
-
-            document.getElementById('sy-pr1-cat').textContent = pr1.toFixed(1);
-            document.getElementById('sy-pr2-cat').textContent = pr2.toFixed(1);
-            document.getElementById('sy-pr3-cat').textContent = pr3.toFixed(1);
-            document.getElementById('sy-pr4-cat').textContent = pr4.toFixed(1);
-
-            let prTotal = pr1 + pr2 + pr3 + pr4;
+            var prTotal = 0;
+            for (var p = 1; p <= 4; p++) {
+                prTotal += parseFloat(document.getElementById('sy-pr' + p).value) || 0;
+            }
             document.getElementById('sy-pr-total').textContent = prTotal.toFixed(2);
             document.getElementById('sy-rekap-pr').textContent = prTotal.toFixed(2);
 
-            let grandTotal = tmTotal + prTotal;
+            var grandTotal = tmTotal + prTotal;
             document.getElementById('sy-total').textContent = grandTotal.toFixed(2);
             document.getElementById('sy-rekap-total').textContent = grandTotal.toFixed(2);
         }
 
-        function simpanSyarhil() {
-            let data = {
-                id: ++currentId,
-                cabang: 'Syarhil Qur'an',
-                nomor: document.getElementById('sy-nomor').value || '-',
-                nama: document.getElementById('sy-giliran').value || '-',
-                golongan: document.getElementById('sy-topik').value || '-',
-                nilai: {
+        // Save function
+        function simpan(cabang) {
+            var data = { id: ++currentId, cabang: cabang };
+
+            if (cabang === 'seni-baca') {
+                data.nomor = document.getElementById('sb-nomor').value || '-';
+                data.nama = document.getElementById('sb-nama').value || '-';
+                data.golongan = document.getElementById('sb-golongan').value;
+                data.nilai = {
+                    tajwid: parseFloat(document.getElementById('sb-total-tajwid').textContent),
+                    fashahah: parseFloat(document.getElementById('sb-total-fashahah').textContent),
+                    suara: parseFloat(document.getElementById('sb-total-suara').textContent),
+                    lagu: parseFloat(document.getElementById('sb-total-lagu').textContent)
+                };
+                data.total = parseFloat(document.getElementById('sb-rekap-total').textContent);
+            } else if (cabang === 'qiraat-murattal') {
+                data.nomor = document.getElementById('qr-nomor').value || '-';
+                data.nama = document.getElementById('qr-nama').value || '-';
+                data.golongan = document.getElementById('qr-qiraah').value || '-';
+                data.nilai = {
+                    tajwid: parseFloat(document.getElementById('qr-total-tajwid').textContent),
+                    fashahah: parseFloat(document.getElementById('qr-total-fashahah').textContent),
+                    irama: parseFloat(document.getElementById('qr-total-irama').textContent)
+                };
+                data.total = parseFloat(document.getElementById('qr-rekap-total').textContent);
+            } else if (cabang === 'hafalan') {
+                data.nomor = document.getElementById('h-nomor').value || '-';
+                data.nama = document.getElementById('h-nama').value || '-';
+                data.golongan = document.getElementById('h-golongan').value;
+                data.nilai = {
+                    tahfizh: parseFloat(document.getElementById('h-total-tahfizh').textContent),
+                    tajwid: parseFloat(document.getElementById('h-total-tajwid').textContent),
+                    fashahah: parseFloat(document.getElementById('h-total-fashahah').textContent)
+                };
+                data.total = parseFloat(document.getElementById('h-rekap-total').textContent);
+            } else if (cabang === 'syarhil') {
+                data.nomor = document.getElementById('sy-nomor').value || '-';
+                data.nama = document.getElementById('sy-giliran').value || '-';
+                data.golongan = document.getElementById('sy-topik').value || '-';
+                data.nilai = {
                     terjemah: parseFloat(document.getElementById('sy-tm-total').textContent),
                     penghayatan: parseFloat(document.getElementById('sy-pr-total').textContent)
-                },
-                total: parseFloat(document.getElementById('sy-rekap-total').textContent)
-            };
+                };
+                data.total = parseFloat(document.getElementById('sy-rekap-total').textContent);
+            }
+
             rekapanData.push(data);
             updateRekapan();
-            showToast('Data Syarhil berhasil disimpan!');
+            alert('Data ' + cabang + ' berhasil disimpan!');
         }
 
-        function resetSyarhil() {
-            document.getElementById('sy-tm1').value = 10;
-            document.getElementById('sy-tm2').value = 20;
-            document.getElementById('sy-tm3').value = 10;
-            document.getElementById('sy-pr1').value = 8;
-            document.getElementById('sy-pr2').value = 8;
-            document.getElementById('sy-pr3').value = 8;
-            document.getElementById('sy-pr4').value = 6;
-            document.querySelectorAll('#syarhil input[type="text"]').forEach(i => i.value = '');
-            hitungSyarhil();
+        // Reset function
+        function resetForm(cabang) {
+            if (cabang === 'seni-baca') {
+                for (var i = 1; i <= 4; i++) {
+                    document.getElementById('sb-t' + i + '-jali').value = 0;
+                    document.getElementById('sb-t' + i + '-khafi').value = 0;
+                    document.getElementById('sb-f' + i + '-jali').value = 0;
+                    document.getElementById('sb-f' + i + '-khafi').value = 0;
+                }
+                for (var s = 1; s <= 5; s++) {
+                    document.getElementById('sb-s' + s).value = 3;
+                    document.getElementById('sb-l' + s).value = 5;
+                }
+                document.getElementById('sb-nomor').value = '';
+                document.getElementById('sb-nama').value = '';
+                hitungSB();
+            } else if (cabang === 'qiraat-murattal') {
+                for (var t = 1; t <= 5; t++) {
+                    document.getElementById('qr-t' + t + '-jali').value = 0;
+                    var khafiEl = document.getElementById('qr-t' + t + '-khafi');
+                    if (khafiEl) khafiEl.value = 0;
+                    document.getElementById('qr-f' + t + '-jali').value = 0;
+                    var fkhafiEl = document.getElementById('qr-f' + t + '-khafi');
+                    if (fkhafiEl) fkhafiEl.value = 0;
+                }
+                for (var ir = 1; ir <= 3; ir++) {
+                    document.getElementById('qr-i' + ir).value = 10;
+                }
+                document.getElementById('qr-nomor').value = '';
+                document.getElementById('qr-nama').value = '';
+                hitungQR();
+            } else if (cabang === 'hafalan') {
+                for (var h = 1; h <= 4; h++) {
+                    document.getElementById('h-th' + h).value = 0;
+                }
+                for (var tj = 1; tj <= 5; tj++) {
+                    document.getElementById('h-tj' + tj).value = 0;
+                }
+                for (var f = 1; f <= 4; f++) {
+                    document.getElementById('h-f' + f).value = 0;
+                }
+                document.getElementById('h-nomor').value = '';
+                document.getElementById('h-nama').value = '';
+                hitungH();
+            } else if (cabang === 'syarhil') {
+                document.getElementById('sy-tm1').value = 10;
+                document.getElementById('sy-tm2').value = 20;
+                document.getElementById('sy-tm3').value = 10;
+                document.getElementById('sy-pr1').value = 8;
+                document.getElementById('sy-pr2').value = 8;
+                document.getElementById('sy-pr3').value = 8;
+                document.getElementById('sy-pr4').value = 6;
+                document.getElementById('sy-nomor').value = '';
+                document.getElementById('sy-giliran').value = '';
+                hitungSY();
+            }
         }
 
-        // Rekapan Functions
+        // Update rekapan table
         function updateRekapan() {
-            let tbody = document.getElementById('rekapan-body');
-            if(rekapanData.length === 0) {
-                tbody.innerHTML = '<tr id="empty-rekapan"><td colspan="8" style="text-align:center; padding: 3rem; color: var(--text-muted);"><i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>Belum ada data tersimpan. Silakan isi dan simpan data dari setiap cabang penilaian.</td></tr>';
+            var tbody = document.getElementById('rekapan-body');
+            if (rekapanData.length === 0) {
+                tbody.innerHTML = '<tr id="empty-rekapan"><td colspan="8" style="text-align:center; padding: 3rem; color: var(--text-muted);"><i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>Belum ada data tersimpan.</td></tr>';
                 document.getElementById('rekap-total-peserta').textContent = '0';
                 document.getElementById('rekap-nilai-tertinggi').textContent = '-';
-                document.getElementById('rekap-tertinggi-detail').textContent = '-';
                 document.getElementById('rekap-rata-rata').textContent = '-';
                 return;
             }
 
-            let html = '';
-            let maxTotal = 0;
-            let maxName = '-';
-            let sumTotal = 0;
+            var html = '';
+            var maxTotal = 0;
+            var sumTotal = 0;
 
-            rekapanData.forEach((data, index) => {
-                let nilaiStr = Object.entries(data.nilai).map(([k,v]) => `${k}: ${v.toFixed(2)}`).join(', ');
-                html += `<tr>
-                    <td>${index+1}</td>
-                    <td><strong>${data.cabang}</strong></td>
-                    <td>${data.nomor}</td>
-                    <td>${data.nama}</td>
-                    <td>${data.golongan}</td>
-                    <td style="font-size:0.85rem">${nilaiStr}</td>
-                    <td style="font-weight:700; color: var(--primary); font-size:1.1rem">${data.total.toFixed(2)}</td>
-                    <td><button class="btn btn-outline" style="padding:0.4rem 0.8rem; font-size:0.8rem" onclick="hapusData(${data.id})"><i class="fas fa-trash"></i></button></td>
-                </tr>`;
+            for (var i = 0; i < rekapanData.length; i++) {
+                var data = rekapanData[i];
+                var nilaiStr = '';
+                for (var key in data.nilai) {
+                    nilaiStr += key + ': ' + data.nilai[key].toFixed(2) + ', ';
+                }
+                html += '<tr><td>' + (i+1) + '</td><td><strong>' + data.cabang + '</strong></td><td>' + data.nomor + '</td><td>' + data.nama + '</td><td>' + data.golongan + '</td><td style="font-size:0.8rem">' + nilaiStr + '</td><td style="font-weight:700; color: var(--primary); font-size:1.1rem">' + data.total.toFixed(2) + '</td><td><button class="btn btn-outline" style="padding:0.3rem 0.6rem; font-size:0.75rem" onclick="hapusData(' + data.id + ')"><i class="fas fa-trash"></i></button></td></tr>';
 
-                if(data.total > maxTotal) {
+                if (data.total > maxTotal) {
                     maxTotal = data.total;
-                    maxName = data.nama;
                 }
                 sumTotal += data.total;
-            });
+            }
 
             tbody.innerHTML = html;
             document.getElementById('rekap-total-peserta').textContent = rekapanData.length;
             document.getElementById('rekap-nilai-tertinggi').textContent = maxTotal.toFixed(2);
-            document.getElementById('rekap-tertinggi-detail').textContent = maxName;
             document.getElementById('rekap-rata-rata').textContent = (sumTotal / rekapanData.length).toFixed(2);
         }
 
         function hapusData(id) {
-            rekapanData = rekapanData.filter(d => d.id !== id);
+            var newData = [];
+            for (var i = 0; i < rekapanData.length; i++) {
+                if (rekapanData[i].id !== id) {
+                    newData.push(rekapanData[i]);
+                }
+            }
+            rekapanData = newData;
             updateRekapan();
-            showToast('Data berhasil dihapus!');
         }
 
-        function printRekapan() {
-            window.print();
-        }
-
-        // Initialize calculations on load
+        // Initialize
         window.onload = function() {
-            hitungSeniBaca();
-            hitungQiraatMujawwad();
-            hitungQiraatMurattal();
-            hitungHafalan();
-            hitungTafsir();
-            hitungSyarhil();
+            hitungSB();
+            hitungQR();
+            hitungH();
+            hitungSY();
         };
     </script>
 </body>
