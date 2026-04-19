@@ -966,13 +966,13 @@
             document.getElementById('sy-rekap-pr').textContent = prTotal.toFixed(2);
 
             var tilawahTotal = 0;
-            for (var p = 1; p <= 3; p++) {
-                tilawahTotal += parseFloat(document.getElementById('sy-tilawah' + p).value) || 0;
+            for (var t = 1; t <= 3; t++) {
+                tilawahTotal += parseFloat(document.getElementById('sy-tilawah' + t).value) || 0;
             }
             document.getElementById('sy-tilawah-total').textContent = tilawahTotal.toFixed(2);
             document.getElementById('sy-rekap-tilawah').textContent = tilawahTotal.toFixed(2);
 
-            var grandTotal = tmTotal + prTotal + ptilawahTotal;
+            var grandTotal = tmTotal + prTotal + tilawahTotal;
             document.getElementById('sy-total').textContent = grandTotal.toFixed(2);
             document.getElementById('sy-rekap-total').textContent = grandTotal.toFixed(2);
         }
