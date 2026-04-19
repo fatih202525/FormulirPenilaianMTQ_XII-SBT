@@ -637,9 +637,9 @@
                 <div class="card-header">
                     <div>
                         <div class="card-title"><i class="fas fa-comment-alt"></i> Syarhil Qur'an</div>
-                        <div class="card-subtitle">Terjemah & Materi, Penghayatan & Retorika</div>
+                        <div class="card-subtitle">Tilawah,Terjemah & Materi, Penghayatan & Retorika</div>
                     </div>
-                    <span class="score-badge" id="sy-total">70.00</span>
+                    <span class="score-badge" id="sy-total">100.00</span>
                 </div>
 
                 <div class="form-grid">
@@ -648,8 +648,21 @@
                     <div class="form-group"><label>Babak</label><select id="sy-babak"><option>Penyisihan</option><option>Final</option></select></div>
                     <div class="form-group"><label>Topik</label><input type="text" id="sy-topik" placeholder="No. Topik"></div>
                 </div>
+<h4><i class="fas fa-music"></i> 1. Tilawah (Maks: 30)</h4>
+                <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>No</th><th>Materi</th><th>Nilai</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Tajwid</td><td><input type="number" class="input-cell" id="qr-i1" min="3" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr><td>2</td><td>Lagu dan Suara</td><td><input type="number" class="input-cell" id="qr-i2" min="3" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr><td>3</td><td>Fashahah</td><td><input type="number" class="input-cell" id="qr-i3" min="3" max="10" value="10" onchange="hitungQR()"></td></tr>
+                            <tr style="background: var(--bg-light); font-weight:700;"><td colspan="2" style="text-align:right">Tilawah:</td><td class="result-cell" id="qr-total-tilawah">30.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                <h4><i class="fas fa-language"></i> 1. Terjemah dan Materi (Maks: 40)</h4>
+                <h4><i class="fas fa-language"></i> 2. Terjemah dan Materi (Maks: 40)</h4>
                 <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
                 <div class="table-container">
                     <table>
@@ -663,7 +676,7 @@
                     </table>
                 </div>
 
-                <h4><i class="fas fa-theater-masks"></i> 2. Penghayatan & Retorika (Maks: 30)</h4>
+                <h4><i class="fas fa-theater-masks"></i> 3. Penghayatan & Retorika (Maks: 30)</h4>
                 <div class="formula-box">Nilai = Jumlah perolehan langsung</div>
                 <div class="table-container">
                     <table>
@@ -681,9 +694,10 @@
                 <div class="rekap-section">
                     <div class="rekap-title" style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-star"></i> Rekap Nilai</div>
                     <div class="rekap-grid">
+         <div class="rekap-item"><div class="rekap-label">Tilawah</div><div class="rekap-value" id="sy-rekap-tilawah">30.00</div></div>
                         <div class="rekap-item"><div class="rekap-label">Terjemah</div><div class="rekap-value" id="sy-rekap-tm">40.00</div></div>
                         <div class="rekap-item"><div class="rekap-label">Penghayatan</div><div class="rekap-value" id="sy-rekap-pr">30.00</div></div>
-                        <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="sy-rekap-total" style="font-size: 2rem;">70.00</div></div>
+                        <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="sy-rekap-total" style="font-size: 2rem;">100.00</div></div>
                     </div>
                 </div>
 
@@ -960,7 +974,7 @@
         function simpan(cabang) {
             var data = { id: ++currentId, cabang: cabang };
 
-            if (cabang === 'seni-baca') {
+            if (cabang === 'tilawah') {
                 data.nomor = document.getElementById('sb-nomor').value || '-';
                 data.nama = document.getElementById('sb-nama').value || '-';
                 data.golongan = document.getElementById('sb-golongan').value;
@@ -996,6 +1010,7 @@
                 data.nama = document.getElementById('sy-giliran').value || '-';
                 data.golongan = document.getElementById('sy-topik').value || '-';
                 data.nilai = {
+                    tilawah: parseFloat(document.getElementById('sy-tm-total').textContent),
                     terjemah: parseFloat(document.getElementById('sy-tm-total').textContent),
                     penghayatan: parseFloat(document.getElementById('sy-pr-total').textContent)
                 };
