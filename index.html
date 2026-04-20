@@ -229,6 +229,11 @@
             color: var(--primary);
         }
 
+        .btn-success {
+            background: #2e7d32;
+            color: white;
+        }
+
         .btn-group {
             display: flex;
             gap: 1rem;
@@ -282,6 +287,93 @@
             font-size: 1rem;
         }
 
+        /* Penilai Section Styling */
+        .penilai-section {
+            background: linear-gradient(135deg, #fff8e1, #fff3e0);
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .penilai-section h4 {
+            color: #856404;
+            margin: 0 0 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .penilai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .penilai-grid .form-group input {
+            background: white;
+            border-color: #d4af37;
+        }
+
+        .penilai-grid .form-group input:focus {
+            border-color: #856404;
+        }
+
+        .penilai-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .penilai-status.sudah {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .penilai-status.belum {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .summary-header {
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-score {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        @media print {
+            .nav-container, .btn-group, .btn { display: none !important; }
+            .card { break-inside: avoid; page-break-inside: avoid; }
+            body { background: white; }
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 1.3rem; }
             .container { padding: 0.5rem; }
@@ -327,7 +419,7 @@
             <button class="nav-tab active" id="tab-dashboard" onclick="goTo('dashboard')">
                 <i class="fas fa-home"></i> Dashboard
             </button>
-            <button class="nav-tab" id="tab-seni-baca" onclick="goTo('seni-baca')">
+            <button class="nav-tab" id="tab-Tilawah" onclick="goTo('Tilawah')">
                 <i class="fas fa-book-open"></i> Tilawah
             </button>
             <button class="nav-tab" id="tab-qiraat-murattal" onclick="goTo('qiraat-murattal')">
@@ -364,13 +456,13 @@
                     </div>
                     <div style="padding: 1.5rem; background: #fff3e0; border-radius: 12px; border: 1px solid #ffe0b2;">
                         <i class="fas fa-clipboard-check" style="font-size: 2rem; color: #e65100; margin-bottom: 0.5rem; display: block;"></i>
-                        <h3 style="margin-bottom: 0.5rem; color: #e65100; font-size: 1rem;">6 Cabang Penilaian</h3>
+                        <h3 style="margin-bottom: 0.5rem; color: #e65100; font-size: 1rem;">4 Cabang Penilaian</h3>
                         <p style="font-size: 0.85rem; color: var(--text-muted);">Tilawah, Murattal, Hafalan, Syarhil, dan Rekapan.</p>
                     </div>
                     <div style="padding: 1.5rem; background: #e3f2fd; border-radius: 12px; border: 1px solid #bbdefb;">
                         <i class="fas fa-chart-pie" style="font-size: 2rem; color: #1565c0; margin-bottom: 0.5rem; display: block;"></i>
                         <h3 style="margin-bottom: 0.5rem; color: #1565c0; font-size: 1rem;">Rekapan Real-time</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Lihat rekapan nilai setiap cabang.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Lihat rekapan nilai setiap cabang dengan konfirmasi Dewan Hakim & Penilai Bidang.</p>
                     </div>
                 </div>
 
@@ -380,14 +472,16 @@
                         <li>Masukkan data peserta pada formulir yang tersedia</li>
                         <li>Isikan jumlah kesalahan sesuai ketentuan</li>
                         <li>Nilai akhir dihitung otomatis</li>
+                        <li>Isi <strong>Nama Dewan Hakim</strong> dan <strong>Penilai Bidang</strong> sebelum menyimpan data</li>
                         <li>Gunakan tombol <strong>Simpan Data</strong> untuk menyimpan ke rekapan</li>
+                        <li>Rekapan akhir bisa diunduh (CSV) atau dicetak</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- Tilawah Al-Qur'an -->
-        <section id="seni-baca" class="section">
+        <section id="Tilawah" class="section">
             <div class="card">
                 <div class="card-header">
                     <div>
@@ -479,9 +573,26 @@
                     </div>
                 </div>
 
+                <!-- Penilai Tilawah -->
+                <div class="penilai-section">
+                    <h4><i class="fas fa-gavel"></i> Konfirmasi Penilai</h4>
+                    <div class="penilai-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i> Nama Dewan Hakim</label>
+                            <input type="text" id="sb-dewan-hakim" placeholder="Masukkan nama dewan hakim" oninput="updatePenilaiStatus('sb')">
+                            <span class="penilai-status belum" id="sb-dewan-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clipboard-check"></i> Penilai Bidang</label>
+                            <input type="text" id="sb-penilai-bidang" placeholder="Masukkan nama penilai bidang" oninput="updatePenilaiStatus('sb')">
+                            <span class="penilai-status belum" id="sb-penilai-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="simpan('seni-baca')"><i class="fas fa-save"></i> Simpan Data</button>
-                    <button class="btn btn-outline" onclick="resetForm('seni-baca')"><i class="fas fa-redo"></i> Reset</button>
+                    <button class="btn btn-primary" onclick="simpan('Tilawah')"><i class="fas fa-save"></i> Simpan Data</button>
+                    <button class="btn btn-outline" onclick="resetForm('Tilawah')"><i class="fas fa-redo"></i> Reset</button>
                 </div>
             </div>
         </section>
@@ -559,6 +670,23 @@
                         <div class="rekap-item"><div class="rekap-label">Fashahah</div><div class="rekap-value" id="qr-rekap-fashahah">30.00</div></div>
                         <div class="rekap-item"><div class="rekap-label">Irama</div><div class="rekap-value" id="qr-rekap-irama">30.00</div></div>
                         <div class="rekap-item" style="background: rgba(212,175,55,0.3);"><div class="rekap-label">TOTAL</div><div class="rekap-value" id="qr-rekap-total" style="font-size: 2rem;">100.00</div></div>
+                    </div>
+                </div>
+
+                <!-- Penilai Murattal -->
+                <div class="penilai-section">
+                    <h4><i class="fas fa-gavel"></i> Konfirmasi Penilai</h4>
+                    <div class="penilai-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i> Nama Dewan Hakim</label>
+                            <input type="text" id="qr-dewan-hakim" placeholder="Masukkan nama dewan hakim" oninput="updatePenilaiStatus('qr')">
+                            <span class="penilai-status belum" id="qr-dewan-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clipboard-check"></i> Penilai Bidang</label>
+                            <input type="text" id="qr-penilai-bidang" placeholder="Masukkan nama penilai bidang" oninput="updatePenilaiStatus('qr')">
+                            <span class="penilai-status belum" id="qr-penilai-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
                     </div>
                 </div>
 
@@ -645,6 +773,23 @@
                     </div>
                 </div>
 
+                <!-- Penilai Hafalan -->
+                <div class="penilai-section">
+                    <h4><i class="fas fa-gavel"></i> Konfirmasi Penilai</h4>
+                    <div class="penilai-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i> Nama Dewan Hakim</label>
+                            <input type="text" id="h-dewan-hakim" placeholder="Masukkan nama dewan hakim" oninput="updatePenilaiStatus('h')">
+                            <span class="penilai-status belum" id="h-dewan-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clipboard-check"></i> Penilai Bidang</label>
+                            <input type="text" id="h-penilai-bidang" placeholder="Masukkan nama penilai bidang" oninput="updatePenilaiStatus('h')">
+                            <span class="penilai-status belum" id="h-penilai-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <button class="btn btn-primary" onclick="simpan('hafalan')"><i class="fas fa-save"></i> Simpan Data</button>
                     <button class="btn btn-outline" onclick="resetForm('hafalan')"><i class="fas fa-redo"></i> Reset</button>
@@ -722,6 +867,23 @@
                     </div>
                 </div>
 
+                <!-- Penilai Syarhil -->
+                <div class="penilai-section">
+                    <h4><i class="fas fa-gavel"></i> Konfirmasi Penilai</h4>
+                    <div class="penilai-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i> Nama Dewan Hakim</label>
+                            <input type="text" id="sy-dewan-hakim" placeholder="Masukkan nama dewan hakim" oninput="updatePenilaiStatus('sy')">
+                            <span class="penilai-status belum" id="sy-dewan-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clipboard-check"></i> Penilai Bidang</label>
+                            <input type="text" id="sy-penilai-bidang" placeholder="Masukkan nama penilai bidang" oninput="updatePenilaiStatus('sy')">
+                            <span class="penilai-status belum" id="sy-penilai-status"><i class="fas fa-times-circle"></i> Belum Diisi</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <button class="btn btn-primary" onclick="simpan('syarhil')"><i class="fas fa-save"></i> Simpan Data</button>
                     <button class="btn btn-outline" onclick="resetForm('syarhil')"><i class="fas fa-redo"></i> Reset</button>
@@ -735,9 +897,12 @@
                 <div class="card-header">
                     <div>
                         <div class="card-title"><i class="fas fa-clipboard-list"></i> Rekapan Nilai</div>
-                        <div class="card-subtitle">Data tersimpan dari setiap cabang</div>
+                        <div class="card-subtitle">Data tersimpan dari setiap cabang dengan konfirmasi Dewan Hakim & Penilai Bidang</div>
                     </div>
-                    <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+                    <div class="btn-group" style="margin:0;">
+                        <button class="btn btn-success" onclick="downloadCSV()"><i class="fas fa-file-csv"></i> Unduh CSV</button>
+                        <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+                    </div>
                 </div>
 
                 <div class="table-container">
@@ -751,12 +916,14 @@
                                 <th>Golongan</th>
                                 <th>Nilai</th>
                                 <th>Total</th>
+                                <th>Dewan Hakim</th>
+                                <th>Penilai Bidang</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="rekapan-body">
                             <tr id="empty-rekapan">
-                                <td colspan="8" style="text-align:center; padding: 3rem; color: var(--text-muted);">
+                                <td colspan="10" style="text-align:center; padding: 3rem; color: var(--text-muted);">
                                     <i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
                                     Belum ada data tersimpan.
                                 </td>
@@ -794,6 +961,27 @@
         var rekapanData = [];
         var currentId = 0;
 
+        // Load from localStorage on startup
+        function loadFromStorage() {
+            var stored = localStorage.getItem('mtq_rekapan_data');
+            var storedId = localStorage.getItem('mtq_current_id');
+            if (stored) {
+                try {
+                    rekapanData = JSON.parse(stored);
+                    currentId = storedId ? parseInt(storedId) : 0;
+                    updateRekapan();
+                } catch(e) {
+                    console.error('Error loading data', e);
+                }
+            }
+        }
+
+        // Save to localStorage
+        function saveToStorage() {
+            localStorage.setItem('mtq_rekapan_data', JSON.stringify(rekapanData));
+            localStorage.setItem('mtq_current_id', currentId.toString());
+        }
+
         // Navigation function - using explicit button IDs
         function goTo(sectionId) {
             // Hide all sections
@@ -821,6 +1009,31 @@
 
             // Scroll to top
             window.scrollTo(0, 0);
+        }
+
+        // Update Penilai Status indicator
+        function updatePenilaiStatus(prefix) {
+            var dewan = document.getElementById(prefix + '-dewan-hakim').value.trim();
+            var penilai = document.getElementById(prefix + '-penilai-bidang').value.trim();
+
+            var dewanStatus = document.getElementById(prefix + '-dewan-status');
+            var penilaiStatus = document.getElementById(prefix + '-penilai-status');
+
+            if (dewan) {
+                dewanStatus.className = 'penilai-status sudah';
+                dewanStatus.innerHTML = '<i class="fas fa-check-circle"></i> ' + dewan;
+            } else {
+                dewanStatus.className = 'penilai-status belum';
+                dewanStatus.innerHTML = '<i class="fas fa-times-circle"></i> Belum Diisi';
+            }
+
+            if (penilai) {
+                penilaiStatus.className = 'penilai-status sudah';
+                penilaiStatus.innerHTML = '<i class="fas fa-check-circle"></i> ' + penilai;
+            } else {
+                penilaiStatus.className = 'penilai-status belum';
+                penilaiStatus.innerHTML = '<i class="fas fa-times-circle"></i> Belum Diisi';
+            }
         }
 
         // Tilawah Calculation
@@ -1000,9 +1213,29 @@
 
         // Save function
         function simpan(cabang) {
-            var data = { id: ++currentId, cabang: cabang };
+            var prefix = '';
+            if (cabang === 'Tilawah') prefix = 'sb';
+            else if (cabang === 'qiraat-murattal') prefix = 'qr';
+            else if (cabang === 'hafalan') prefix = 'h';
+            else if (cabang === 'syarhil') prefix = 'sy';
 
-            if (cabang === 'tilawah') {
+            // Validasi Penilai
+            var dewanHakim = document.getElementById(prefix + '-dewan-hakim').value.trim();
+            var penilaiBidang = document.getElementById(prefix + '-penilai-bidang').value.trim();
+
+            if (!dewanHakim || !penilaiBidang) {
+                alert('Mohon isi Nama Dewan Hakim dan Penilai Bidang terlebih dahulu!');
+                return;
+            }
+
+            var data = { 
+                id: ++currentId, 
+                cabang: cabang, 
+                dewanHakim: dewanHakim, 
+                penilaiBidang: penilaiBidang 
+            };
+
+            if (cabang === 'Tilawah') {
                 data.nomor = document.getElementById('sb-nomor').value || '-';
                 data.nama = document.getElementById('sb-nama').value || '-';
                 data.golongan = document.getElementById('sb-golongan').value;
@@ -1046,13 +1279,20 @@
             }
 
             rekapanData.push(data);
+            saveToStorage();
             updateRekapan();
+
+            // Reset penilai inputs after save
+            document.getElementById(prefix + '-dewan-hakim').value = '';
+            document.getElementById(prefix + '-penilai-bidang').value = '';
+            updatePenilaiStatus(prefix);
+
             alert('Data ' + cabang + ' berhasil disimpan!');
         }
 
         // Reset function
         function resetForm(cabang) {
-            if (cabang === 'seni-baca') {
+            if (cabang === 'Tilawah') {
                 for (var i = 1; i <= 4; i++) {
                     document.getElementById('sb-t' + i + '-jali').value = 0;
                     document.getElementById('sb-t' + i + '-khafi').value = 0;
@@ -1065,6 +1305,9 @@
                 }
                 document.getElementById('sb-nomor').value = '';
                 document.getElementById('sb-nama').value = '';
+                document.getElementById('sb-dewan-hakim').value = '';
+                document.getElementById('sb-penilai-bidang').value = '';
+                updatePenilaiStatus('sb');
                 hitungSB();
             } else if (cabang === 'qiraat-murattal') {
                 for (var t = 1; t <= 5; t++) {
@@ -1080,6 +1323,9 @@
                 }
                 document.getElementById('qr-nomor').value = '';
                 document.getElementById('qr-nama').value = '';
+                document.getElementById('qr-dewan-hakim').value = '';
+                document.getElementById('qr-penilai-bidang').value = '';
+                updatePenilaiStatus('qr');
                 hitungQR();
             } else if (cabang === 'hafalan') {
                 for (var h = 1; h <= 4; h++) {
@@ -1093,6 +1339,9 @@
                 }
                 document.getElementById('h-nomor').value = '';
                 document.getElementById('h-nama').value = '';
+                document.getElementById('h-dewan-hakim').value = '';
+                document.getElementById('h-penilai-bidang').value = '';
+                updatePenilaiStatus('h');
                 hitungH();
             } else if (cabang === 'syarhil') {
                 document.getElementById('sy-tm1').value = 10;
@@ -1107,6 +1356,9 @@
                 document.getElementById('sy-tilawah3').value = 10;
                 document.getElementById('sy-nomor').value = '';
                 document.getElementById('sy-giliran').value = '';
+                document.getElementById('sy-dewan-hakim').value = '';
+                document.getElementById('sy-penilai-bidang').value = '';
+                updatePenilaiStatus('sy');
                 hitungSY();
             }
         }
@@ -1115,7 +1367,7 @@
         function updateRekapan() {
             var tbody = document.getElementById('rekapan-body');
             if (rekapanData.length === 0) {
-                tbody.innerHTML = '<tr id="empty-rekapan"><td colspan="8" style="text-align:center; padding: 3rem; color: var(--text-muted);"><i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>Belum ada data tersimpan.</td></tr>';
+                tbody.innerHTML = '<tr id="empty-rekapan"><td colspan="10" style="text-align:center; padding: 3rem; color: var(--text-muted);"><i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>Belum ada data tersimpan.</td></tr>';
                 document.getElementById('rekap-total-peserta').textContent = '0';
                 document.getElementById('rekap-nilai-tertinggi').textContent = '-';
                 document.getElementById('rekap-rata-rata').textContent = '-';
@@ -1132,7 +1384,11 @@
                 for (var key in data.nilai) {
                     nilaiStr += key + ': ' + data.nilai[key].toFixed(2) + ', ';
                 }
-                html += '<tr><td>' + (i+1) + '</td><td><strong>' + data.cabang + '</strong></td><td>' + data.nomor + '</td><td>' + data.nama + '</td><td>' + data.golongan + '</td><td style="font-size:0.8rem">' + nilaiStr + '</td><td style="font-weight:700; color: var(--primary); font-size:1.1rem">' + data.total.toFixed(2) + '</td><td><button class="btn btn-outline" style="padding:0.3rem 0.6rem; font-size:0.75rem" onclick="hapusData(' + data.id + ')"><i class="fas fa-trash"></i></button></td></tr>';
+
+                var dewanDisplay = data.dewanHakim ? '<span class="penilai-status sudah" style="font-size:0.7rem;"><i class="fas fa-check-circle"></i> ' + data.dewanHakim + '</span>' : '<span class="penilai-status belum" style="font-size:0.7rem;">-</span>';
+                var penilaiDisplay = data.penilaiBidang ? '<span class="penilai-status sudah" style="font-size:0.7rem;"><i class="fas fa-check-circle"></i> ' + data.penilaiBidang + '</span>' : '<span class="penilai-status belum" style="font-size:0.7rem;">-</span>';
+
+                html += '<tr><td>' + (i+1) + '</td><td><strong>' + data.cabang + '</strong></td><td>' + data.nomor + '</td><td>' + data.nama + '</td><td>' + data.golongan + '</td><td style="font-size:0.8rem">' + nilaiStr + '</td><td style="font-weight:700; color: var(--primary); font-size:1.1rem">' + data.total.toFixed(2) + '</td><td>' + dewanDisplay + '</td><td>' + penilaiDisplay + '</td><td><button class="btn btn-outline" style="padding:0.3rem 0.6rem; font-size:0.75rem" onclick="hapusData(' + data.id + ')"><i class="fas fa-trash"></i></button></td></tr>';
 
                 if (data.total > maxTotal) {
                     maxTotal = data.total;
@@ -1147,6 +1403,7 @@
         }
 
         function hapusData(id) {
+            if (!confirm('Yakin ingin menghapus data ini?')) return;
             var newData = [];
             for (var i = 0; i < rekapanData.length; i++) {
                 if (rekapanData[i].id !== id) {
@@ -1154,11 +1411,66 @@
                 }
             }
             rekapanData = newData;
+            saveToStorage();
             updateRekapan();
+        }
+
+        // Download CSV function
+        function downloadCSV() {
+            if (rekapanData.length === 0) {
+                alert('Tidak ada data untuk diunduh!');
+                return;
+            }
+
+            var csv = '\uFEFF'; // BOM for Excel
+            csv += 'No,Cabang,Nomor,Nama,Golongan,';
+            
+            // Get all unique nilai keys
+            var nilaiKeys = {};
+            for (var i = 0; i < rekapanData.length; i++) {
+                for (var key in rekapanData[i].nilai) {
+                    nilaiKeys[key] = true;
+                }
+            }
+            var keys = Object.keys(nilaiKeys);
+            for (var k = 0; k < keys.length; k++) {
+                csv += keys[k] + ',';
+            }
+            
+            csv += 'Total,Dewan Hakim,Penilai Bidang\n';
+
+            for (var i = 0; i < rekapanData.length; i++) {
+                var data = rekapanData[i];
+                csv += (i+1) + ',';
+                csv += '"' + data.cabang + '",';
+                csv += '"' + data.nomor + '",';
+                csv += '"' + data.nama + '",';
+                csv += '"' + data.golongan + '",';
+                
+                for (var k = 0; k < keys.length; k++) {
+                    var val = data.nilai[keys[k]] !== undefined ? data.nilai[keys[k]].toFixed(2) : '-';
+                    csv += val + ',';
+                }
+                
+                csv += data.total.toFixed(2) + ',';
+                csv += '"' + (data.dewanHakim || '') + '",';
+                csv += '"' + (data.penilaiBidang || '') + '"\n';
+            }
+
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement('a');
+            var url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'Rekapan_MTQ_Seram_Timur_' + new Date().toISOString().slice(0,10) + '.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Initialize
         window.onload = function() {
+            loadFromStorage();
             hitungSB();
             hitungQR();
             hitungH();
